@@ -4,6 +4,7 @@ import logo from "../assets/elex.png";
 import GlobalContext from "../context/GlobalContext";
 import {FiChevronLeft} from "react-icons/fi";
 import {FiChevronRight} from "react-icons/fi";
+
 export default function CalendarHeader() {
   const { monthIndex, setMonthIndex } = useContext(GlobalContext);
   function handlePrevMonth() {
