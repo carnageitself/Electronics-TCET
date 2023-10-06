@@ -22,6 +22,7 @@
     "@mui/material": "^5.12.3",
     "@mui/x-data-grid": "^6.3.1",
     "chart.js": "^4.3.0",
+    "dayjs": "^1.11.10",
     "hamburger-react": "^2.5.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",

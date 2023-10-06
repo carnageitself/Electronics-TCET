@@ -1,102 +1,35 @@
-import React from "react";
-import FullCalender from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGridPlugin from "@fullcalendar/timegrid";
-import listPlugin from "@fullcalendar/list";
-import interactionPlugin from "@fullcalendar/interaction";
-import {
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-} from "@mui/material";
-import { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { getMonth } from "../utils";
+import GlobalContext from "../context/GlobalContext";
+import CalendarHeader from "../components/CalendarHeader";
+import EventModal from "../components/EventModal";
+import Sidebar from "../components/CalendarSidebar";
+import Month from "../components/Months";
 
 const Events = () => {
-  const [currentEvents, setCurrentEvents] = useState([]);
+ 
+  const [currenMonth, setCurrentMonth] = useState(getMonth());
+  const { monthIndex, showEventModal } = useContext(GlobalContext);
 
-  const handleSelect = (selected) => {
-    const title = prompt("Please enter a new title for your event");
-    const calendarApi = selected.view.calendar;
-    calendarApi.unselect();
+  useEffect(() => {
+    setCurrentMonth(getMonth(monthIndex));
+  }, [monthIndex]);
 
-    if (title) {
-      calendarApi.addEvent({
-        id: `${selected.dateStr}-${title}`,
-        title,
-        start: selected.startStr,
-        end: selected.endStr,
-        allDay: selected.allDay,
-      });
-    }
-  }
-
-const handleDelete = (selected) => {
-  if (
-    window.confirm(
-      `Are you sure you want to delete the event '${selected.event.title}'`
-    )
-  ) {
-    selected.event.remove();
-  }
-}
 
   return (
-    <div className="events flex flex-col h-full">
-      <div className="eventHeader my-8 flex justify-center">
+    <div className="events h-full">
+      <div className="eventHeader my-8 justify-center">
         <h1 className="text-xl">ACADEMIC EVENTS</h1>
       </div>
-      <div className="eventContainer flex justify-between mx-10 border shadow-lg p-5 gap-5">
-        <div className="event w-[20%] flex flex-col">
-          <h1 className="h-12 items-center">EVENTS</h1>
-          <List>
-            {currentEvents.map((event) => (
-              <ListItem
-                key={event.id}
-                sx={{
-                  backgroundColor: "lightgreen",
-                  marginTop: "10px",
-                  marginBottom: "0px",
-                  borderRadius: "10px",
-                }}
-              >
-                <ListItemText
-                  primary={event.title}
-                  secondary={
-                    <Typography>
-                    
-                    </Typography>
-                  }
-                />
-              </ListItem>
-            ))}
-          </List>
-        </div>
-        <div className="eventBox w-[80%]">
-          <FullCalender
-           plugins={[
-            dayGridPlugin,
-            timeGridPlugin,
-            interactionPlugin,
-            listPlugin,
-          ]}
-          headerToolbar={{
-            left: "prev,next today",
-            center: "title",
-            right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
-          }}
-          initialView="dayGridMonth"
-          editable={true}
-          selectable={true}
-          dayMaxEvents={true}
-          selectMirror={true}
-          select={handleSelect}
-          eventClick={handleDelete}
-          eventsSet={(events) => setCurrentEvents(events)}
-          />
+      {showEventModal && <EventModal />}
+      <div className="eventContainer flex flex-col mx-10 border shadow-lg p-5 gap-5">
+        <CalendarHeader/>
+        <div className="flex flex-1">
+          <Sidebar />
+          <Month month={currenMonth} />
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 
