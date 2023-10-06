@@ -17,78 +17,77 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="sidebar flex-1 h-52 w-52 top-20 absolute bg-white border-r z-10 left-0 pl-2">
+    <div className="sidebar flex-1 h-screen w-52 top-20 absolute white-glassmorphism z-10 left-0 pl-2">
       <hr className="h-0 border pl-10"/>
-      <div className="center border-r">
-        <ul className="list-none m-0 p-0 bg-white">
+      
+        <ul className="list-none m-0 p-0">
           <p className="title mt-3 mb-2 text-xs font-bold">MAIN</p>
             <Link to="/">
-          <li className="flex items-center p-2 cursor-pointer">
+          <li className="flex items-center p-2 cursor-pointer hover:bg-blue-100">
             <DashboardRoundedIcon className="icon text-lg" />
             <span className="ml-2 text-xs font-semibold">Dashboard</span>
           </li>
             </Link>
           <p className="title mt-3 mb-2 text-xs font-bold">LISTS</p>
           <Link to="/users">
-          <li className="flex items-center p-2 text-xs cursor-pointer font-semibold">
+          <li className="flex items-center p-2 text-xs cursor-pointer font-semibold  hover:bg-blue-100">
             <PeopleAltOutlinedIcon className="icon" />
             <span className="ml-2">Users</span>
           </li>
           </Link>
           <Link to="/attendance">
-          <li className="flex items-center p-2 text-xs cursor-pointer font-semibold">
+          <li className="flex items-center p-2 text-xs cursor-pointer font-semibold hover:bg-blue-100">
             <BorderColorOutlinedIcon className="icon" />
             <span className="ml-2">Attendance</span>
           </li>
           </Link>
           <Link to ="/events">
-          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold">
+          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold hover:bg-blue-100">
             <EventAvailableOutlinedIcon className="icon" />
             <span className="ml-2">Events</span>
           </li>
           </Link>
           <Link to="/kanban">
-          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold">
+          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold hover:bg-blue-100">
             <DesktopWindowsOutlinedIcon className="icon" />
             <span className="ml-2">Kanban</span>
           </li>
           </Link>
           <p className="title mt-5 mb-2 text-xs font-bold">USEFUL</p>
-          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold">
+          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold hover:bg-blue-100">
             <QueryStatsOutlinedIcon className="icon" />
             <span className="ml-2">Stats</span>
           </li>
-          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold">
+          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold hover:bg-blue-100">
             <NotificationsActiveOutlinedIcon className="icon" />
             <span className="ml-2">Notifications</span>
           </li>
           <p className="title mt-5 mb-2 text-xs font-bold">SERVICE</p>
-          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold">
+          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold hover:bg-blue-100">
             <SystemUpdateAltOutlinedIcon className="icon" />
             <span className="ml-2">System Health</span>
           </li>
 
-          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold">
+          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold hover:bg-blue-100">
             <SyncAltOutlinedIcon className="icon" />
             <span className="ml-2">Logs</span>
           </li>
 
-          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold">
+          <li className="flex items-center p-2 text-xs  cursor-pointer font-semibold hover:bg-blue-100">
             <SettingsSuggestOutlinedIcon className="icon" />
             <span className="ml-2">Settings</span>
           </li>
           <p className="title mt-5 mb-2 text-xs font-bold">USER</p>
-          <li className="flex items-center p-2 text-xs cursor-pointer font-semibold">
+          <li className="flex items-center p-2 text-xs cursor-pointer font-semibold hover:bg-blue-100">
             <AccountBoxOutlinedIcon className="icon" />
             <span className="ml-2">Profile</span>
           </li>
-          <li className="flex items-center p-2 text-xs cursor-pointer font-semibold">
+          <li className="flex items-center p-2 text-xs cursor-pointer font-semibold hover:bg-blue-100">
             <LogoutOutlinedIcon className="icon" />
             <span className="ml-2">Log Out</span>
           </li>
         </ul>
       </div>
-    </div>
   );
 };
 

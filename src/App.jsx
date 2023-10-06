@@ -6,6 +6,7 @@ import Users from "./pages/Users";
 import Attendance from "./pages/Attendance";
 import Events from "./pages/Events";
 import Kanban from "./pages/Kanban";
+import New from "./pages/New";
 
 function App() {
   const Layout = () => {
@@ -42,6 +43,10 @@ function App() {
         {
           path : "/kanban",
           element: <Kanban/>
+        },
+        {
+          path : "/users/new",
+          element: <New/>
         }
       ],
     },
