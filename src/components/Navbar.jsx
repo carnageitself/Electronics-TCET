@@ -6,7 +6,7 @@ import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutline
 import Sidebar from "./Sidebar";
 import { Divide as Hamburger } from 'hamburger-react'
 import yash from "../assets/yashXD.jpg"
-import logo from "../assets/logoelex.png"
+import logo from "../assets/tcet.png"
 
 const Navbar = () => {
   const [side, setSide] = useState(false)
@@ -27,7 +27,7 @@ const Navbar = () => {
             </div>
           <Link to="/" className="link flex pl-5 items-center">
             <img src={logo} alt="" className="w-10 h-10" />
-            <span className="text pl-2">ELECTRONICS</span>
+            <span className="text pl-2 uppercase">Thakur College of Engineering and Technology</span>
 
           </Link>
         </div>

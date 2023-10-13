@@ -1,7 +1,6 @@
 import React from 'react'
 import { Chart as ChartJS, CategoryScale, LinearScale, RadialLinearScale, ArcElement} from "chart.js"
 import { PolarArea } from 'react-chartjs-2'
-import { Tilt } from 'react-tilt'
 
 ChartJS.register(
   CategoryScale,
@@ -35,9 +34,7 @@ const PieChart = () => {
 
   return (
     <div className='p-2'>
-      <Tilt scale={0}>
       <PolarArea data={data} height={350} width={350}></PolarArea>
-      </Tilt>
     </div>
   )
 }

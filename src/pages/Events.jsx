@@ -19,7 +19,6 @@ const Events = () => {
   return (
     <div className="events h-full">
       <div className="eventHeader my-8 justify-center">
-        <h1 className="text-xl">ACADEMIC EVENTS</h1>
       </div>
       {showEventModal && <EventModal />}
       <div className="eventContainer flex flex-col mx-10 border shadow-lg p-5 gap-5">

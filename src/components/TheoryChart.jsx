@@ -14,7 +14,7 @@ const TheoryChart = () => {
     const data = {
       labels: labels,
       datasets: [{
-        label: 'My First Dataset',
+        label: 'Theory Attendance',
         data: [65, 59, 80, 81, 56, 55, 40],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
