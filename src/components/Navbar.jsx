@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
@@ -7,11 +7,13 @@ import Sidebar from "./Sidebar";
 import { Divide as Hamburger } from 'hamburger-react'
 import yash from "../assets/yashXD.jpg"
 import logo from "../assets/tcet.png"
+import { DarkModeContext } from "../context/DarkModeContext";
 
 const Navbar = () => {
   const [side, setSide] = useState(false)
   const [open, setOpen] = useState(false)
   const {pathname} = useLocation()
+  const {dispatch} = useContext(DarkModeContext);
 
   const currentUser = {
     admin: true
@@ -32,7 +34,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="links flex gap-6 items-center font-medium">
-          <span> <DarkModeOutlinedIcon className="icon cursor-pointer"/></span>
+          <span> <DarkModeOutlinedIcon className="icon cursor-pointer" onClick={()=> dispatch({type: "TOGGLE"})}/></span>
           <div className="">
           <span><NotificationsNoneOutlinedIcon className="icon cursor-pointer"/></span>
           <div className="counter w-4 h-4 bg-red-500 text-white flex items-center justify-center text-xs font-bold absolute top-6 right-[145px] rounded-full">1</div>
@@ -56,11 +58,9 @@ const Navbar = () => {
                   {currentUser?.admin && (
                     <>
                       <Link to="/mygigs" className="link">Gigs</Link>
-                      <Link to="/add" className="link">Add New Gig</Link>
                     </>
                   )}
-                  <Link to="/orders" className="link">Orders</Link>
-                  <Link to="/messages" className="link">Messages</Link>
+                  <Link to="/users/profile" className="link">Profile</Link>
                   <Link to="/" className="link">Log Out</Link>
                 </div>
               )}

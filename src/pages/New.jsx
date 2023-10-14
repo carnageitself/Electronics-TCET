@@ -1,3 +1,4 @@
+
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import {
@@ -7,7 +8,7 @@ import {
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
-import { auth, db, storage } from "../firebase"
+import { auth, db, storage } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useEffect } from "react";
@@ -87,7 +88,9 @@ const New = ({ inputs, title }) => {
 
   return (
     <div className="new">
+    
       <div className="newContainer">
+      
         <div className="top">
           <h1>{title}</h1>
         </div>

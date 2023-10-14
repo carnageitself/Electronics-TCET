@@ -16,12 +16,15 @@ import Login from "./pages/Login";
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
 import Profile from "./pages/Profile";
+import { userInputs } from "./constants/FormSource";
+import { DarkModeContext } from "./context/DarkModeContext";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to="/login" />;
   };
+  const {darkMode} = useContext(DarkModeContext);
 
   const Layout = () => {
     return (
@@ -85,7 +88,7 @@ function App() {
           path: "/users/new",
           element: (
             <RequireAuth>
-              <New />
+              <New inputs = {userInputs} title = "Add New User"/>
             </RequireAuth>
           ),
         },
@@ -110,7 +113,7 @@ function App() {
   ]);
 
   return (
-    <div className="">
+    <div className={darkMode ? "app dark" : "dark"}>
       <RouterProvider router={router} />
     </div>
   );

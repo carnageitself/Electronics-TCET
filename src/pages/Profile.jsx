@@ -16,7 +16,7 @@ const Profile = () => {
                 className="itemImg w-20 h-20 rounded-full object-cover"
                 />
                 </div>
-             <div className="detials flex flex-col border w-full h-full">
+             <div className="detials flex flex-col w-full h-full">
              <div className="details mx-5 my-3">
              <div className="detailItem">
                   <span className="itemKey">Name:</span>
