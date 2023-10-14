@@ -13,7 +13,7 @@ const DataTable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction flex items-center gap-3">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to="/users/profile" style={{ textDecoration: "none" }}>
               <div className="viewButton rounded border cursor-pointer p-1 text-green-500">View</div>
             </Link>
             <div
@@ -36,7 +36,7 @@ const DataTable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/products/test" style={{ textDecoration: "none" }}>
+            <Link to="/students/profile" style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
             <div

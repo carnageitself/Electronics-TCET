@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="logo text-lg font-bold flex items-center">
             <div>
             <Hamburger toggled={side} toggle={setSide} />
-            {side && <div className="top-16" onClick={side}><Sidebar/></div>}
+            {side && <div className="top-16"><Sidebar/></div>}
             </div>
           <Link to="/" className="link flex pl-5 items-center">
             <img src={logo} alt="" className="w-10 h-10" />

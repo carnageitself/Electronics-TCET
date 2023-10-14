@@ -12,10 +12,10 @@ import Attendance from "./pages/Attendance";
 import Events from "./pages/Events";
 import Kanban from "./pages/Kanban";
 import New from "./pages/New";
-import Single from "./pages/Single";
 import Login from "./pages/Login";
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
+import Profile from "./pages/Profile";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -93,7 +93,7 @@ function App() {
           path: "/users/:userid",
           element: (
             <RequireAuth>
-              <Single />
+              <Profile />
             </RequireAuth>
           ),
         },
