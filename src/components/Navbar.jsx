@@ -28,8 +28,8 @@ const Navbar = () => {
             {side && <div className="top-16"><Sidebar/></div>}
             </div>
           <Link to="/" className="link flex pl-5 items-center">
-            <img src={logo} alt="" className="w-10 h-10" />
-            <span className="text pl-2 uppercase">Thakur College of Engineering and Technology</span>
+            <img src={logo} alt="" className="w-14 h-14" />
+            <span className="text-[#DC6803] pl-2 title">Thakur College of Engineering & Technology</span>
 
           </Link>
         </div>

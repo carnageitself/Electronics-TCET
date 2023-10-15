@@ -6,6 +6,7 @@ import {RxDashboard} from "react-icons/rx"
 import {GrBookmark} from "react-icons/gr"
 import {MdAccessTime} from "react-icons/md"
 import {MdOutlineSegment} from "react-icons/md"
+import{BsTextLeft} from "react-icons/bs"
 
 const labelsClasses = [
   "indigo",
@@ -84,7 +85,8 @@ export default function EventModal() {
         </header>
         <div className="p-3">
           <div className="grid grid-cols-1/5 items-end gap-y-7">
-            
+           <div className="flex items-center gap-3">
+           <BsTextLeft/>
             <input
               type="text"
               name="title"
@@ -94,6 +96,7 @@ export default function EventModal() {
               className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
               onChange={(e) => setTitle(e.target.value)}
             />
+           </div>
             <div className="flex items-center gap-3">
             <span className="material-icons-outlined text-gray-400">
              <MdAccessTime/>
@@ -123,8 +126,8 @@ export default function EventModal() {
                 <span
                   key={i}
                   onClick={() => setSelectedLabel(lblClass)}
-                  style={{backgroundColor:`${lblClass}`}}
-                  className={` w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
+                  style={{backgroundColor:`${lblClass}`,  opacity : 0.7}}
+                  className={`w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
                 >
                   {/* {selectedLabel === lblClass && (
                     <span className="material-icons-outlined text-white text-sm">

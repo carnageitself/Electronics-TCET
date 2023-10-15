@@ -2,8 +2,12 @@ import AcademicTable from "../components/AcademicTable";
 import Chart from "../components/AttendanceChart"
 import List from "../components/MarksTable";
 import CreateIcon from '@mui/icons-material/Create';
+import { userData } from "../constants/MarksSource";
 
 const Profile = () => {
+
+  const user = userData[0]
+
   return (
     <div className="single flex flex-col w-full">
         <div className="top flex-6 flex mx-20 mt-10 justify-between gap-10">
@@ -20,38 +24,38 @@ const Profile = () => {
              <div className="details mx-5 my-3">
              <div className="detailItem">
                   <span className="itemKey">Name:</span>
-                  <span className="itemValue ml-2">Yash Harale</span>
+                  <span className="itemValue ml-2">{user.name}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Address:</span>
                   <span className="itemValue ml-2">
-                    10/757 old MHB Colony Gorai Road Borivali West Mumbai-400091.
+                    {user.address}
                   </span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Email:</span>
-                  <span className="itemValue ml-2">yashvharale@gmail.com</span>
+                  <span className="itemValue ml-2">{user.email}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Contact No:</span>
-                  <span className="itemValue ml-2">8104799731</span>
+                  <span className="itemValue ml-2">{user.contactno}</span>
                 </div>
                
                 <div className="detailItem">
                   <span className="itemKey">Father's Name:</span>
-                  <span className="itemValue ml-2">Vivek Harale</span>
+                  <span className="itemValue ml-2">{user.fatheremail}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Occupation:</span>
-                  <span className="itemValue ml-2">Civil Contractor</span>
+                  <span className="itemValue ml-2">{user.occupation}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Telephone No:</span>
-                  <span className="itemValue ml-2">9869253846</span>
+                  <span className="itemValue ml-2">{user.telephoneno}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Email:</span>
-                  <span className="itemValue ml-2">vivekrharale@gmail.com</span>
+                  <span className="itemValue ml-2">{user.fatheremail}</span>
                 </div>
               </div>
              </div>

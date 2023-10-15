@@ -13,8 +13,8 @@ const Home = () => {
             <Widgets type="balance"/>
           </div>
             <div className="charts flex-6 flex sm:flex-row flex-col mx-20 mt-10 sm:justify-between justify-center gap-10">
-              <div className="left flex flex-1 shadow-xl w-[100%] justify-center h-[400px]"><PieChart/></div>
-              <div className="right flex flex-1 shadow-xl w-full justify-center h-[400px]"><BarChart size={200}/></div>
+              <div className="left flex flex-1 w-[100%] justify-center h-[400px] border shadow-lg"><PieChart/></div>
+              <div className="right flex flex-1 w-full justify-center h-[400px] border shadow-lg"><BarChart size={200}/></div>
             </div>
         </div>
   )

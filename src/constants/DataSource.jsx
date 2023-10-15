@@ -1,9 +1,9 @@
 export const userColumns = [
-    { field: "rollNo", headerName: "Roll No", width: 100 },
+    { field: "id", headerName: "Roll No", width: 100 },
     {
       field: "name",
       headerName: "Name",
-      width: 230,
+      width: 250,
       renderCell: (params) => {
         return (
           <div className="cellWithImg flex gap-5 items-center">
@@ -16,12 +16,12 @@ export const userColumns = [
     {
       field: "email",
       headerName: "Email",
-      width: 230,
+      width: 250,
     },
     {
       field: "batch",
       headerName: "Batch",
-      width: 230,
+      width: 120,
     },
   
     {
@@ -32,7 +32,12 @@ export const userColumns = [
     {
       field: "gender",
       headerName: "Gender",
-      width: 160,
+      width: 130,
+    },
+    {
+      field: "status",
+      headerName: "Status",
+      width: 130,
       renderCell: (params) => {
         return (
           <div className={`cellWithStatus ${params.row.status}`}>
