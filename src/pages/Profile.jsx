@@ -22,40 +22,40 @@ const Profile = () => {
                 </div>
              <div className="detials flex flex-col w-full h-full">
              <div className="details mx-5 my-3">
-             <div className="detailItem">
-                  <span className="itemKey">Name:</span>
-                  <span className="itemValue ml-2">{user.name}</span>
+             <div className="detailItem mb-1">
+                  <span className="itemKey font-title text-lg">Name:</span>
+                  <span className="itemValue ml-2 text-base">{user.name}</span>
                 </div>
-                <div className="detailItem">
-                  <span className="itemKey">Address:</span>
-                  <span className="itemValue ml-2">
+                <div className="detailItem mb-1">
+                  <span className="itemKey font-title text-lg">Address:</span>
+                  <span className="itemValue ml-2 text-base">
                     {user.address}
                   </span>
                 </div>
-                <div className="detailItem">
-                  <span className="itemKey">Email:</span>
-                  <span className="itemValue ml-2">{user.email}</span>
+                <div className="detailItem mb-1">
+                  <span className="itemKey font-title text-lg">Email:</span>
+                  <span className="itemValue ml-2 text-base">{user.email}</span>
                 </div>
-                <div className="detailItem">
-                  <span className="itemKey">Contact No:</span>
-                  <span className="itemValue ml-2">{user.contactno}</span>
+                <div className="detailItem mb-1">
+                  <span className="itemKey font-title text-lg">Contact No:</span>
+                  <span className="itemValue ml-2 text-base">{user.contactno}</span>
                 </div>
                
-                <div className="detailItem">
-                  <span className="itemKey">Father's Name:</span>
-                  <span className="itemValue ml-2">{user.fatheremail}</span>
+                <div className="detailItem mb-1">
+                  <span className="itemKey font-title text-lg">Father's Name:</span>
+                  <span className="itemValue ml-2 text-base">{user.fatheremail}</span>
                 </div>
-                <div className="detailItem">
-                  <span className="itemKey">Occupation:</span>
-                  <span className="itemValue ml-2">{user.occupation}</span>
+                <div className="detailItem mb-1">
+                  <span className="itemKey font-title text-lg">Occupation:</span>
+                  <span className="itemValue ml-2 text-base">{user.occupation}</span>
                 </div>
-                <div className="detailItem">
-                  <span className="itemKey">Telephone No:</span>
-                  <span className="itemValue ml-2">{user.telephoneno}</span>
+                <div className="detailItem mb-1">
+                  <span className="itemKey font-title text-lg">Telephone No:</span>
+                  <span className="itemValue ml-2 text-base">{user.telephoneno}</span>
                 </div>
-                <div className="detailItem">
-                  <span className="itemKey">Email:</span>
-                  <span className="itemValue ml-2">{user.fatheremail}</span>
+                <div className="detailItem mb-1">
+                  <span className="itemKey font-title text-lg">Email:</span>
+                  <span className="itemValue ml-2 text-base">{user.fatheremail}</span>
                 </div>
               </div>
              </div>

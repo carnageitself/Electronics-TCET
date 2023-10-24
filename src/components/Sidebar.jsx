@@ -21,7 +21,7 @@ const Sidebar = () => {
       <hr className="h-0 border pl-10"/>
       
         <ul className="list-none m-0 p-0">
-          <p className="title mt-3 mb-2 text-xs font-bold font-title">MAIN</p>
+          <p className="title mt-3 mb-2 text-xs font-bold ">MAIN</p>
             <Link to="/">
           <li className="flex items-center p-2 cursor-pointer hover:bg-blue-100">
             <DashboardRoundedIcon className="icon text-lg" />

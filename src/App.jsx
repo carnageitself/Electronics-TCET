@@ -24,7 +24,7 @@ function App() {
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to="/login" />;
   };
-  const {darkMode} = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
 
   const Layout = () => {
     return (
@@ -37,6 +37,10 @@ function App() {
   };
 
   const router = createBrowserRouter([
+    {
+      path: "/login",
+      element: <Login />,
+    },
     {
       path: "/",
       element: <Layout />,
@@ -88,7 +92,7 @@ function App() {
           path: "/users/new",
           element: (
             <RequireAuth>
-              <New inputs = {userInputs} title = "Add New User"/>
+              <New inputs={userInputs} title="Add New User" />
             </RequireAuth>
           ),
         },
@@ -100,15 +104,8 @@ function App() {
             </RequireAuth>
           ),
         },
-        {
-          path: "/login",
-          element: (
-           
-              <Login />
-           
-          ),
-        },
       ],
+     
     },
   ]);
 

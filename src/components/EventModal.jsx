@@ -55,10 +55,10 @@ export default function EventModal() {
     setShowEventModal(false);
   }
   return (
-    <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center">
+    <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center z-50">
       <form className="bg-white rounded-lg shadow-2xl w-1/4">
         <header className="bg-gray-100 px-4 py-2 flex justify-between items-center">
-          <span className="material-icons-outlined text-gray-400">
+          <span className="material-icons-outlined text-gray-700">
           <RxDashboard/>
           </span>
           <div className="flex gap-2">
@@ -71,13 +71,13 @@ export default function EventModal() {
                   });
                   setShowEventModal(false);
                 }}
-                className="material-icons-outlined text-gray-400 cursor-pointer"
+                className="material-icons-outlined text-gray-700 cursor-pointer"
               >
                 <MdOutlineDeleteOutline/>
               </span>
             )}
             <button onClick={() => setShowEventModal(false)}>
-              <span className="material-icons-outlined text-gray-400">
+              <span className="material-icons-outlined text-gray-700">
                 <RxCross2/>
               </span>
             </button>
@@ -86,7 +86,7 @@ export default function EventModal() {
         <div className="p-3">
           <div className="grid grid-cols-1/5 items-end gap-y-7">
            <div className="flex items-center gap-3">
-           <BsTextLeft/>
+           <BsTextLeft className="text-gray-700" size={24}/>
             <input
               type="text"
               name="title"
@@ -98,14 +98,14 @@ export default function EventModal() {
             />
            </div>
             <div className="flex items-center gap-3">
-            <span className="material-icons-outlined text-gray-400">
-             <MdAccessTime/>
+            <span className="material-icons-outlined text-gray-700">
+             <MdAccessTime size={24}/>
             </span>
             <p>{daySelected.format("dddd, MMMM DD")}</p>
             </div>
             <div className="flex items-center gap-3">
-            <span className="material-icons-outlined text-gray-400">
-              <MdOutlineSegment/>
+            <span className="material-icons-outlined text-gray-700">
+              <MdOutlineSegment size={24}/>
             </span>
             <input
               type="text"
@@ -118,8 +118,8 @@ export default function EventModal() {
             />
             </div>
            <div className="flex items-center gap-3">
-           <span className="material-icons-outlined text-gray-400">
-              <GrBookmark/>
+           <span className="material-icons-outlined text-gray-300">
+              <GrBookmark size={24} className="text-gray-300"/>
             </span>
             <div className="flex gap-x-2">
               {labelsClasses.map((lblClass, i) => (
