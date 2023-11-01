@@ -50,9 +50,10 @@ export default function Day({ day, rowIdx }) {
             key={idx}
             onClick={() => setSelectedEvent(evt)}
             style={{backgroundColor: `${evt.label}`, opacity: 0.3}}
-            className={` p-1 mr-3 text-white text-sm rounded mb-1 truncate`}
+            className={` p-1 mr-3  text-sm rounded mb-1 truncate`}
           >
-            {evt.title}
+            <span className="text-black opacity-100"> {evt.title}</span>
+           
           </div>
         ))}
       </div>
