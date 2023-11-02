@@ -87,15 +87,14 @@ const New = ({ inputs, title }) => {
   };
 
   return (
-    <div className="new">
+    <div className="new w-full h-full">
     
-      <div className="newContainer">
+      <div className="newContainer flex flex-col">
       
-        <div className="top">
+        <div className="my-5">
           <h1>{title}</h1>
         </div>
-        <div className="bottom">
-          <div className="left">
+          <div className="top flex justify-center items-center">
             <img
               src={
                 file
@@ -103,10 +102,11 @@ const New = ({ inputs, title }) => {
                   : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
               }
               alt=""
+              className="w-32 h-32 rounded-full my-3"
             />
           </div>
-          <div className="right">
-            <form onSubmit={handleAdd}>
+          <div className="bottom flex flex-1 my-5 flex-col">
+            <form onSubmit={handleAdd} className="grid grid-cols-3 gap-8">
               <div className="formInput">
                 <label htmlFor="file">
                   Image: <DriveFolderUploadOutlinedIcon className="icon" />
@@ -131,14 +131,15 @@ const New = ({ inputs, title }) => {
                   />
                 </div>
               ))}
-              <button disabled={per !== null && per < 100} type="submit">
+            </form>
+             <div className="flex justify-center items-center mt-5">
+             <button disabled={per !== null && per < 100} type="submit" className="bg-green-500 px-4 py-2 rounded-lg">
                 Send
               </button>
-            </form>
+             </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
