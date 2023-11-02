@@ -27,26 +27,10 @@ function App() {
   };
   const { darkMode } = useContext(DarkModeContext);
 
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const Layout = () => {
     return (
       <>
-        <Navbar className={scrolled ? "shadow" : "navbar"}/>
+        <Navbar/>
         <Outlet />
         <Footer />
       </>
