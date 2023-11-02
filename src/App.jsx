@@ -14,22 +14,39 @@ import Kanban from "./pages/Kanban";
 import New from "./pages/New";
 import Login from "./pages/Login";
 import { AuthContext } from "./context/AuthContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Profile from "./pages/Profile";
 import { userInputs } from "./constants/FormSource";
 import { DarkModeContext } from "./context/DarkModeContext";
 
 function App() {
+  
   const { currentUser } = useContext(AuthContext);
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to="/login" />;
   };
   const { darkMode } = useContext(DarkModeContext);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const Layout = () => {
     return (
       <>
-        <Navbar />
+        <Navbar className={scrolled ? "shadow" : "navbar"}/>
         <Outlet />
         <Footer />
       </>

@@ -83,7 +83,7 @@ const Widgets = ({ type }) => {
   }
 
   return (
-    <Tilt className="widget flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg white-glassmorphism shadow-lg">
+    <Tilt className="widget flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg bg-slate-50">
       <div className="left flex flex-col justify-between">
         <div className="title font-bold text-sm text-gray-600">
           {data.title}

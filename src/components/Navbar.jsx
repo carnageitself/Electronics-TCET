@@ -26,17 +26,18 @@ const Navbar = () => {
   };
 
   return (
-    <div className={darkMode ? "dark" : "navbar flex flex-col items-center sticky z-10 top-0 bg-white shadow-lg"}>
+    <div className={darkMode ? "dark" : "navbar flex flex-col items-center sticky z-10 top-0 bg-white"}>
       <div className="container w-full flex justify-between pl-3 pr-6 py-0 h-20 border-b">
         <div className="logo text-lg font-bold flex items-center">
-          <div>
-            <Hamburger toggled={side} toggle={setSide} />
+          <div className="text-gray-700">
+            <Hamburger toggled={side} toggle={setSide} size={30}/>
+            </div>
             {side && (
               <div className="top-16">
                 <Sidebar />
               </div>
             )}
-          </div>
+          
           <Link to="/" className="link flex pl-5 items-center">
             <img src={logo} alt="" className="w-20 h-20 p-2" />
             <span className="text-[#DC6803] pl-2 title text-2xl font-semibold">

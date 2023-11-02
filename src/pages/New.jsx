@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
-  const [per, setPerc] = useState(null);
+  const [per, setPer] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const New = ({ inputs, title }) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done");
-          setPerc(progress);
+          setPer(progress);
           switch (snapshot.state) {
             case "paused":
               console.log("Upload is paused");
@@ -87,13 +87,12 @@ const New = ({ inputs, title }) => {
   };
 
   return (
-    <div className="new w-full h-full">
-    
-      <div className="newContainer flex flex-col">
+    <div className="new w-full h-full my-10">
+
+      <div className="newContainer flex flex-col border rounded-xl mx-10">
       
-        <div className="my-5">
-          <h1>{title}</h1>
-        </div>
+      
+
           <div className="top flex justify-center items-center">
             <img
               src={
@@ -106,10 +105,10 @@ const New = ({ inputs, title }) => {
             />
           </div>
           <div className="bottom flex flex-1 my-5 flex-col">
-            <form onSubmit={handleAdd} className="grid grid-cols-3 gap-8">
+            <form onSubmit={handleAdd} className="grid grid-cols-3 gap-8 mx-20">
               <div className="formInput">
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Image: <DriveFolderUploadOutlinedIcon className="icon text-gray-500 cursor-pointer" />
                 </label>
                 <input
                 
@@ -122,17 +121,18 @@ const New = ({ inputs, title }) => {
 
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
-                  <label>{input.label}</label>
+                  <label>{input.label}:</label>
                   <input
                     id={input.id}
                     type={input.type}
                     placeholder={input.placeholder}
                     onChange={handleInput}
+                    className="ml-2 bg-transparent"
                   />
                 </div>
               ))}
             </form>
-             <div className="flex justify-center items-center mt-5">
+             <div className="flex justify-center items-center mt-10">
              <button disabled={per !== null && per < 100} type="submit" className="bg-green-500 px-4 py-2 rounded-lg">
                 Send
               </button>

@@ -21,7 +21,7 @@ const Events = () => {
       <div className="eventHeader my-8 justify-center">
       </div>
       {showEventModal && <EventModal />}
-      <div className="eventContainer flex flex-col mx-10 border shadow-lg p-5 gap-5">
+      <div className="eventContainer flex flex-col mx-10 border p-5 gap-5 rounded-xl">
         <CalendarHeader/>
         <div className="flex flex-1">
           <Sidebar />

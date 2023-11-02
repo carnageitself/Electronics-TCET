@@ -1,32 +1,33 @@
 export const userInputs = [
     {
-      id: "username",
-      label: "Username",
+      id: "name",
+      label: "Full Name",
       type: "text",
-      placeholder: "john_doe",
-    },
-    {
-      id: "displayName",
-      label: "Name and surname",
-      type: "text",
-      placeholder: "John Doe",
+      placeholder: "Yash Harale",
     },
     {
       id: "email",
       label: "Email",
-      type: "mail",
-      placeholder: "john_doe@gmail.com",
+      type: "email",
+      placeholder: "yashvharale@gmail.com",
     },
     {
-      id: "phone",
-      label: "Phone",
-      type: "text",
+      id: "rollno",
+      label: "Roll No",
+      type: "number",
+      placeholder: "14",
+    },
+    {
+      id: "contact",
+      label: "Contact No",
+      type: "tel",
       placeholder: "+1 234 567 89",
     },
     {
       id: "password",
       label: "Password",
       type: "password",
+      placeholder: "Password"
     },
     {
       id: "address",
@@ -35,10 +36,52 @@ export const userInputs = [
       placeholder: "Elton St. 216 NewYork",
     },
     {
-      id: "country",
-      label: "Country",
+      id: "fathersname",
+      label: "Father's Name",
       type: "text",
-      placeholder: "USA",
+      placeholder: "Vivek Harale",
+    },
+    {
+      id: "fathersoccupation",
+      label: "Father's Occupation",
+      type: "text",
+      placeholder: "Civil Contractor",
+    },
+    {
+      id: "telephone",
+      label: "Telephone No",
+      type: "tel",
+      placeholder: "91 81047 99731",
+    },
+    {
+      id: "fathersemail",
+      label: "Father's Email",
+      type: "email",
+      placeholder: "vivekrharale@gmail.com",
+    },
+    {
+      id: "batch",
+      label: "Batch",
+      type: "text",
+      placeholder: "Batch 1",
+    },
+    {
+      id: "age",
+      label: "Age",
+      type: "text",
+      placeholder: "21",
+    },
+    {
+      id: "gender",
+      label: "Gender",
+      type: "text",
+      placeholder: "Male",
+    },
+    {
+      id: "status",
+      label: "Status",
+      type: "text",
+      placeholder: "active",
     },
   ];
   

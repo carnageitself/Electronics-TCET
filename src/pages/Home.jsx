@@ -5,7 +5,7 @@ import PieChart from '../components/PieChart'
 
 const Home = () => {
   return (
-    <div className="home flex flex-col z-0 scrollbar-thumb-slate-400 scrollbar-thin scrollbar-track-grey-transparent scrollbar-thumb-rounded-md">
+    <div className="home flex flex-col z-0">
         <div className="homeContainer flex-1 flex sm:flex-row flex-col gap-4 mx-20 justify-between mt-10">
             <Widgets type="user"/>
             <Widgets type="order"/>
@@ -13,8 +13,8 @@ const Home = () => {
             <Widgets type="balance"/>
           </div>
             <div className="charts flex-6 flex sm:flex-row flex-col mx-20 mt-10 sm:justify-between justify-center gap-10">
-              <div className="left flex flex-1 w-[100%] justify-center h-[400px] border shadow-lg rounded-lg"><PieChart/></div>
-              <div className="right flex flex-1 w-full justify-center h-[400px] border shadow-lg rounded-lg"><BarChart size={200}/></div>
+              <div className="left flex flex-1 w-[100%] justify-center h-[400px] border rounded-lg"><PieChart/></div>
+              <div className="right flex flex-1 w-full justify-center h-[400px] border rounded-lg"><BarChart size={200}/></div>
             </div>
         </div>
   )

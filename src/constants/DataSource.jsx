@@ -1,5 +1,5 @@
 export const userColumns = [
-    { field: "id", headerName: "Roll No", width: 100 },
+    { field: "rollno", headerName: "Roll No", width: 100 },
     {
       field: "name",
       headerName: "Name",
@@ -52,6 +52,7 @@ export const userColumns = [
   export const userRows = [
     {
       id: 1,
+      rollno: 1,
       username: "Snow",
       img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       status: "active",
@@ -62,6 +63,7 @@ export const userColumns = [
     },
     {
       id: 2,
+      rollno: 2,
       username: "Jamie Lannister",
       img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       email: "2snow@gmail.com",
@@ -72,6 +74,7 @@ export const userColumns = [
     },
     {
       id: 3,
+      rollno: 3,
       username: "Lannister",
       img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       email: "3snow@gmail.com",
@@ -82,6 +85,7 @@ export const userColumns = [
     },
     {
       id: 4,
+      rollno: 4,
       username: "Stark",
       img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       email: "4snow@gmail.com",
@@ -92,6 +96,7 @@ export const userColumns = [
     },
     {
       id: 5,
+      rollno: 5,
       username: "Targaryen",
       img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       email: "5snow@gmail.com",
@@ -102,6 +107,7 @@ export const userColumns = [
     },
     {
       id: 6,
+      rollno: 6,
       username: "Melisandre",
       img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       email: "6snow@gmail.com",
@@ -112,6 +118,7 @@ export const userColumns = [
     },
     {
       id: 7,
+      rollno: 7,
       username: "Clifford",
       img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       email: "7snow@gmail.com",
@@ -122,6 +129,7 @@ export const userColumns = [
     },
     {
       id: 8,
+      rollno: 8,
       username: "Frances",
       img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       email: "8snow@gmail.com",
@@ -132,6 +140,7 @@ export const userColumns = [
     },
     {
       id: 9,
+      rollno: 9,
       username: "Roxie",
       img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       email: "snow@gmail.com",
@@ -142,6 +151,7 @@ export const userColumns = [
     },
     {
       id: 10,
+      rollno: 10,
       username: "Roxie",
       img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       email: "snow@gmail.com",
