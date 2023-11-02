@@ -105,8 +105,8 @@ const New = ({ inputs, title }) => {
             />
           </div>
           <div className="bottom flex flex-1 my-5 flex-col">
-            <form onSubmit={handleAdd} className="grid grid-cols-3 gap-8 mx-20">
-              <div className="formInput">
+            <form onSubmit={handleAdd} className="flex flex-col">
+              <div className="formInput grid grid-cols-3 gap-8 mx-20">
                 <label htmlFor="file">
                   Image: <DriveFolderUploadOutlinedIcon className="icon text-gray-500 cursor-pointer" />
                 </label>
@@ -117,7 +117,6 @@ const New = ({ inputs, title }) => {
                   onChange={(e) => setFile(e.target.files[0])}
                   style={{ display: "none" }}
                 />
-              </div>
 
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
@@ -128,15 +127,16 @@ const New = ({ inputs, title }) => {
                     placeholder={input.placeholder}
                     onChange={handleInput}
                     className="ml-2 bg-transparent"
-                  />
+                    />
                 </div>
               ))}
-            </form>
+              </div>
              <div className="flex justify-center items-center mt-10">
-             <button disabled={per !== null && per < 100} type="submit" className="bg-green-500 px-4 py-2 rounded-lg">
+             <button disabled={per !== null && per < 100} type="submit" className="bg-green-500 px-4 py-2 rounded-lg" onSubmit={handleAdd}>
                 Send
               </button>
              </div>
+            </form>
           </div>
         </div>
       </div>

@@ -68,8 +68,8 @@ const Navbar = () => {
               className="user flex items-center gap-3 cursor-pointer relative"
               onClick={() => setOpen(!open)}
             >
-              <img src={yash} alt="" className="w-10 h-10 rounded-full" />
-              <span>{currentUser.username}</span>
+              <img src={currentUser?.img} alt="" className="w-10 h-10 rounded-full" />
+              <span>{currentUser?.name}</span>
               {open && (
                 <div className="options absolute top-16 right-0 pl-10 py-5 bg-white border flex flex-col gap-5 w-[200px] font-normal rounded-xl bg-transparent">
                   {currentUser?.admin && (

@@ -95,7 +95,7 @@ export default function Login() {
                 >
                   Sign in
                 </button>
-                {error && <span>Wrong email or password!</span>}
+                {error && <span className="text-red-500 font-normal">Wrong email or password!</span>}
               </div>
             </form>
   

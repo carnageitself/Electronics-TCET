@@ -4,21 +4,24 @@ import List from "../components/MarksTable";
 import CreateIcon from '@mui/icons-material/Create';
 import { userData } from "../constants/MarksSource";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const Profile = () => {
 
   const user = userData[0]
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <div className="single flex flex-col w-full">
         <div className="top flex-6 flex mx-20 mt-10 justify-between gap-10">
-          <div className="singleLeft flex flex-col justify-between items-center relative flex-1 shadow-xl w-[100px] h-[400px] gap-2">
-            <div className="editButton absolute top-0 right-1 p-1 cursor-pointer text-gray-500 hover:border hover:rounded-full">
+          <div className="singleLeft flex flex-col justify-between items-center relative flex-1 rounded-lg border w-[100px] h-[400px] gap-2">
+            <div className="editButton absolute top-1 bg-slate-50 right-1 p-1 cursor-pointer text-gray-500 hover:border rounded-full">
               <Link to="/users/new">
               <CreateIcon/>
               </Link>
               </div>
-            <div className="item">
+            <div className="item mt-5">
               <img
                 src="https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
                 alt=""
@@ -29,12 +32,12 @@ const Profile = () => {
              <div className="details mx-5 my-3">
              <div className="detailItem mb-1">
                   <span className="itemKey font-title text-lg">Name:</span>
-                  <span className="itemValue ml-2 text-base">{user.name}</span>
+                  <span className="itemValue ml-2 text-base">{currentUser.name}</span>
                 </div>
                 <div className="detailItem mb-1">
                   <span className="itemKey font-title text-lg">Address:</span>
                   <span className="itemValue ml-2 text-base">
-                    {user.address}
+                    {currentUser.address}
                   </span>
                 </div>
                 <div className="detailItem mb-1">
@@ -65,7 +68,7 @@ const Profile = () => {
               </div>
              </div>
           </div>
-          <div className="singleRight flex flex-1 shadow-xl w-[100px] justify-center h-[400px]">
+          <div className="singleRight flex flex-1 border rounded-lg w-[100px] justify-center h-[400px]">
             <Chart/>
           </div>
         </div>
