@@ -16,14 +16,14 @@ const Profile = () => {
     <div className="single flex flex-col w-full">
         <div className="top flex-6 flex mx-20 mt-10 justify-between gap-10">
           <div className="singleLeft flex flex-col justify-between items-center relative flex-1 rounded-lg border w-[100px] h-[400px] gap-2">
-            <div className="editButton absolute top-1 bg-slate-50 right-1 p-1 cursor-pointer text-gray-500 hover:border rounded-full">
+            {currentUser.admin && <div className="editButton absolute top-1 bg-slate-50 right-1 p-1 cursor-pointer text-gray-500 hover:border rounded-full">
               <Link to="/users/new">
               <CreateIcon/>
               </Link>
-              </div>
+              </div>}
             <div className="item mt-5">
               <img
-                src="https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+                src={currentUser?.img}
                 alt=""
                 className="itemImg w-20 h-20 rounded-full object-cover"
                 />
@@ -32,38 +32,38 @@ const Profile = () => {
              <div className="details mx-5 my-3">
              <div className="detailItem mb-1">
                   <span className="itemKey font-title text-lg">Name:</span>
-                  <span className="itemValue ml-2 text-base">{currentUser.name}</span>
+                  <span className="itemValue ml-2 text-base">{currentUser?.name}</span>
                 </div>
                 <div className="detailItem mb-1">
                   <span className="itemKey font-title text-lg">Address:</span>
                   <span className="itemValue ml-2 text-base">
-                    {currentUser.address}
+                    {currentUser?.address}
                   </span>
                 </div>
                 <div className="detailItem mb-1">
                   <span className="itemKey font-title text-lg">Email:</span>
-                  <span className="itemValue ml-2 text-base">{user.email}</span>
+                  <span className="itemValue ml-2 text-base">{currentUser?.email}</span>
                 </div>
                 <div className="detailItem mb-1">
                   <span className="itemKey font-title text-lg">Contact No:</span>
-                  <span className="itemValue ml-2 text-base">{user.contactno}</span>
+                  <span className="itemValue ml-2 text-base">{currentUser?.contact}</span>
                 </div>
                
                 <div className="detailItem mb-1">
                   <span className="itemKey font-title text-lg">Father's Name:</span>
-                  <span className="itemValue ml-2 text-base">{user.fatheremail}</span>
+                  <span className="itemValue ml-2 text-base">{currentUser?.fathersemail}</span>
                 </div>
                 <div className="detailItem mb-1">
                   <span className="itemKey font-title text-lg">Occupation:</span>
-                  <span className="itemValue ml-2 text-base">{user.occupation}</span>
+                  <span className="itemValue ml-2 text-base">{currentUser?.fathersoccupation}</span>
                 </div>
                 <div className="detailItem mb-1">
                   <span className="itemKey font-title text-lg">Telephone No:</span>
-                  <span className="itemValue ml-2 text-base">{user.telephoneno}</span>
+                  <span className="itemValue ml-2 text-base">{currentUser?.telephone}</span>
                 </div>
                 <div className="detailItem mb-1">
                   <span className="itemKey font-title text-lg">Email:</span>
-                  <span className="itemValue ml-2 text-base">{user.fatheremail}</span>
+                  <span className="itemValue ml-2 text-base">{currentUser?.fathersemail}</span>
                 </div>
               </div>
              </div>
@@ -73,7 +73,7 @@ const Profile = () => {
           </div>
         </div>
         <div className="bottom p-5 m-2">
-        <h1 className="title mb-5 gap-5">Academic Records</h1>
+        <h1 className="title mb-5 gap-5 mx-16">Academic Records :</h1>
           <AcademicTable/>
           <List/>
         </div>

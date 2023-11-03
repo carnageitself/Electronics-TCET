@@ -8,7 +8,7 @@ export const userColumns = [
         return (
           <div className="cellWithImg flex gap-5 items-center">
             <img className="cellImg rounded-full h-10 w-10" src={params.row.img} alt="avatar" />
-            {params.row.username}
+            {params.row.name}
           </div>
         );
       },

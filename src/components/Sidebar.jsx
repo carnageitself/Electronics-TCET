@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import BorderColorTwoToneIcon from "@mui/icons-material/BorderColorTwoTone";
@@ -14,8 +14,12 @@ import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
 import DesktopWindowsOutlinedIcon from '@mui/icons-material/DesktopWindowsOutlined';
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const Sidebar = () => {
+
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <div className="sidebar flex-1 h-screen w-52 top-20 absolute white-glassmorphism z-10 left-0 pl-2">
       <hr className="h-0 border pl-10"/>
@@ -30,10 +34,10 @@ const Sidebar = () => {
             </Link>
           <p className="title mt-3 mb-2 text-xs font-bold">LISTS</p>
           <Link to="/users">
-          <li className="flex items-center p-2 text-xs cursor-pointer font-semibold  hover:bg-blue-100">
+          {currentUser.admin && <li className="flex items-center p-2 text-xs cursor-pointer font-semibold  hover:bg-blue-100">
             <PeopleAltOutlinedIcon className="icon" />
             <span className="ml-2">Users</span>
-          </li>
+          </li>}
           </Link>
           <Link to="/attendance">
           <li className="flex items-center p-2 text-xs cursor-pointer font-semibold hover:bg-blue-100">

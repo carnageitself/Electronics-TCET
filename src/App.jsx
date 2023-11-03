@@ -18,6 +18,7 @@ import { useContext, useEffect, useState } from "react";
 import Profile from "./pages/Profile";
 import { userInputs } from "./constants/FormSource";
 import { DarkModeContext } from "./context/DarkModeContext";
+import Admin from "./pages/Admin";
 
 function App() {
   
@@ -102,6 +103,14 @@ function App() {
           element: (
             <RequireAuth>
               <Profile />
+            </RequireAuth>
+          ),
+        },
+        {
+          path: "/admin",
+          element: (
+            <RequireAuth>
+              <Admin />
             </RequireAuth>
           ),
         },

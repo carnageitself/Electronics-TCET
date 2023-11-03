@@ -14,7 +14,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const New = ({ inputs, title }) => {
+const New = ({ inputs }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [per, setPer] = useState(null);

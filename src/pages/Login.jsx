@@ -13,23 +13,20 @@ export default function Login() {
   
     const navigate = useNavigate()
   
-    const {dispatch} = useContext(AuthContext)
-  
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
       e.preventDefault();
-  
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          dispatch({type:"LOGIN", payload: user})
-          navigate("/")
-         
-        })
-        .catch((error) => {
-          setError(true);
-        });
+    
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        // Successfully signed in, navigate to the desired page
+        navigate("/");
+      } catch (error) {
+        // Handle authentication errors here
+        setError(true);
+        console.error(error);
+      }
     };
+    
 
     return (
       <>

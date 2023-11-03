@@ -11,11 +11,17 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { db } from "../firebase";
+import { deleteUser, getAuth } from 'firebase/auth';
+import Modal from './Modal';
 
 const DataTable = () => {
 
   const [data, setData] = useState([]);
-
+  const auth = getAuth();
+const user = auth.currentUser;
+console.log(auth, "auth")
+const [open, setOpen] = useState(false)
+ 
   useEffect(() => {
     //const fetchData = async () => {
     // let list = [];
@@ -51,10 +57,13 @@ const DataTable = () => {
     };
   }, []);
 
+  console.log(data) //xd
+
 
   const handleDelete = async (id) => {
     try {
       await deleteDoc(doc(db, "users", id));
+      deleteUser(user)
     } catch (error) {
       console.log(error);
     }
@@ -75,6 +84,7 @@ const DataTable = () => {
             <div
               className="deleteButton p-1 rounded text-red-500 border cursor-pointer"
               onClick={() => handleDelete(params.row.id)}
+              // onClick={()=> setOpen(!open)}
             >
               Delete
             </div>
@@ -98,6 +108,7 @@ const DataTable = () => {
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row.id)}
+              // onClick={<Modal/>}
             >
               Delete
             </div>
@@ -115,6 +126,7 @@ const DataTable = () => {
         Add New
       </Link>
     </div>
+    {open && <Modal/>}
     <DataGrid
       className="datagrid"
       rows={data}

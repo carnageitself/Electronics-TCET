@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, redirect, useLocation, useNavigate } from "react-router-dom";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import Sidebar from "./Sidebar";
@@ -16,28 +16,36 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const { dispatch } = useContext(DarkModeContext);
   const { currentUser } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { darkMode } = useContext(DarkModeContext);
 
   const handleSignOut = async () => {
     localStorage.removeItem("user");
     await signOut(auth);
-    navigate("/login")
+    navigate("/login");
   };
 
+  console.log(currentUser, "currentuser")
+
   return (
-    <div className={darkMode ? "dark" : "navbar flex flex-col items-center sticky z-10 top-0 bg-white"}>
+    <div
+      className={
+        darkMode
+          ? "dark"
+          : "navbar flex flex-col items-center sticky z-10 top-0 bg-white"
+      }
+    >
       <div className="container w-full flex justify-between pl-3 pr-6 py-0 h-20 border-b">
         <div className="logo text-lg font-bold flex items-center">
           <div className="text-gray-700">
-            <Hamburger toggled={side} toggle={setSide} size={30}/>
+            <Hamburger toggled={side} toggle={setSide} size={30} />
+          </div>
+          {side && (
+            <div className="top-16">
+              <Sidebar />
             </div>
-            {side && (
-              <div className="top-16">
-                <Sidebar />
-              </div>
-            )}
-          
+          )}
+
           <Link to="/" className="link flex pl-5 items-center">
             <img src={logo} alt="" className="w-20 h-20 p-2" />
             <span className="text-[#DC6803] pl-2 title text-2xl font-semibold">
@@ -65,24 +73,39 @@ const Navbar = () => {
 
           {currentUser ? (
             <div
-              className="user flex items-center gap-3 cursor-pointer relative"
+              className="user flex items-center gap-3  relative"
               onClick={() => setOpen(!open)}
+             
             >
-              <img src={currentUser?.img} alt="" className="w-10 h-10 rounded-full" />
-              <span>{currentUser?.name}</span>
+              <img
+                src={currentUser?.img}
+                alt=""
+                className="w-10 h-10 rounded-full cursor-pointer"
+              />
+
               {open && (
-                <div className="options absolute top-16 right-0 pl-10 py-5 bg-white border flex flex-col gap-5 w-[200px] font-normal rounded-xl bg-transparent">
+                <div className="options absolute top-16 right-0 py-5 px-3 bg-white border flex flex-col gap-2 w-[200px] font-normal rounded-xl bg-transparent">
+                  <span className="p-2">{currentUser?.name}</span>
                   {currentUser?.admin && (
                     <>
-                      <Link to="/mygigs" className="link">
+                      <Link
+                        to="/admin"
+                        className="link cursor-pointer hover:bg-slate-50 p-2 text-green-500"
+                      >
                         Admin
                       </Link>
                     </>
                   )}
-                  <Link to="/users/profile" className="link">
+                  <Link
+                    to="/users/profile"
+                    className="link cursor-pointer  hover:bg-slate-50 p-2"
+                  >
                     Profile
                   </Link>
-                  <span className="link" onClick={handleSignOut}>
+                  <span
+                    className="link cursor-pointer  hover:bg-slate-50 p-2 text-red-500"
+                    onClick={handleSignOut}
+                  >
                     Log Out
                   </span>
                 </div>
