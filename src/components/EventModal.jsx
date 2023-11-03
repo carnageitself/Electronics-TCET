@@ -126,7 +126,7 @@ export default function EventModal() {
                 <span
                   key={i}
                   onClick={() => setSelectedLabel(lblClass)}
-                  style={{backgroundColor:`${lblClass}`,  opacity : 0.7}}
+                  style={{backgroundColor:`${lblClass}`,  opacity : 0.6}}
                   className={`w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
                 >
                   {/* {selectedLabel === lblClass && (

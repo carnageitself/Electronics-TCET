@@ -117,3 +117,7 @@
   background-color: #121212;
   color: white;
 }
+
+.opaque-color {
+  opacity: 0.3; 
+}

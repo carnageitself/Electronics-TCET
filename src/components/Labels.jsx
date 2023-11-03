@@ -17,7 +17,7 @@ export default function Labels() {
             style={{color: `${lbl}`}}
             className={`form-checkbox h-5 w-5 rounded focus:ring-0 cursor-pointer`}
           />
-          <span className={`ml-2 text-${lbl} capitalize`}>{lbl}</span>
+          <span className={`ml-2 capitalize`}>{lbl}</span>
         </label>
       ))}
     </>

@@ -3,7 +3,6 @@ import { Link, redirect, useLocation, useNavigate } from "react-router-dom";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import Sidebar from "./Sidebar";
 import { Divide as Hamburger } from "hamburger-react";
-import yash from "../assets/yashXD.jpg";
 import logo from "../assets/tcet.png";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { signOut } from "firebase/auth";
@@ -15,23 +14,23 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   const { dispatch } = useContext(DarkModeContext);
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const { darkMode } = useContext(DarkModeContext);
 
   const handleSignOut = async () => {
-    localStorage.removeItem("user");
     await signOut(auth);
+    setCurrentUser(null)
     navigate("/login");
   };
 
-  console.log(currentUser, "currentuser")
+ 
 
   return (
     <div
       className={
         darkMode
-          ? "dark"
+          ? "dark flex flex-col items-center sticky z-10 top-0 bg-black"
           : "navbar flex flex-col items-center sticky z-10 top-0 bg-white"
       }
     >
@@ -57,7 +56,7 @@ const Navbar = () => {
           <span>
             {" "}
             <DarkModeOutlinedIcon
-              className="icon cursor-pointer hover:bg-gray-300 rounded-full"
+              className={darkMode ? "dark cursor-pointer rounded-full" : "icon cursor-pointer hover:bg-slate-100 rounded-full"}
               onClick={() => dispatch({ type: "TOGGLE" })}
             />
           </span>

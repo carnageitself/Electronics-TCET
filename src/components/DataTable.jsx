@@ -11,16 +11,11 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import { deleteUser, getAuth } from 'firebase/auth';
 import Modal from './Modal';
 
 const DataTable = () => {
 
   const [data, setData] = useState([]);
-  const auth = getAuth();
-const user = auth.currentUser;
-console.log(auth, "auth")
-const [open, setOpen] = useState(false)
  
   useEffect(() => {
     //const fetchData = async () => {
@@ -63,11 +58,10 @@ const [open, setOpen] = useState(false)
   const handleDelete = async (id) => {
     try {
       await deleteDoc(doc(db, "users", id));
-      deleteUser(user)
-    } catch (error) {
-      console.log(error);
+      setData(data.filter((item) => item.id !== id));
+    } catch (err) {
+      console.log(err);
     }
-    setData(data.filter((item) => item.id !== id));
   };
 
   const actionColumn = [
@@ -94,30 +88,6 @@ const [open, setOpen] = useState(false)
     },
   ];
 
-  const actionRow = [
-    {
-      field: "action",
-      headerName: "Action",
-      width: 200,
-      renderCell: (params) => {
-        return (
-          <div className="cellAction">
-            <Link to="/students/profile" style={{ textDecoration: "none" }}>
-              <div className="viewButton">View</div>
-            </Link>
-            <div
-              className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}
-              // onClick={<Modal/>}
-            >
-              Delete
-            </div>
-          </div>
-        );
-      },
-    },
-  ];
-
   return (
     <div className="datatable h-[80%] p-2 mx-10">
     <div className="datatableTitle w-[100%] mb-10 flex items-center justify-between mt-8 border-green-700">
@@ -126,7 +96,6 @@ const [open, setOpen] = useState(false)
         Add New
       </Link>
     </div>
-    {open && <Modal/>}
     <DataGrid
       className="datagrid"
       rows={data}

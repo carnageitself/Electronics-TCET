@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
@@ -6,6 +6,8 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import { Tilt } from "react-tilt";
+import { DarkModeContext } from "../context/DarkModeContext";
+
 
 const Widgets = ({ type }) => {
   let data;
@@ -82,8 +84,9 @@ const Widgets = ({ type }) => {
       break;
   }
 
+  const { darkMode } = useContext(DarkModeContext);
   return (
-    <Tilt className="widget flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg bg-slate-50">
+    <Tilt className={darkMode ? "dark flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg" : "widget flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg bg-slate-50"}>
       <div className="left flex flex-col justify-between">
         <div className="title font-bold text-sm text-gray-600">
           {data.title}

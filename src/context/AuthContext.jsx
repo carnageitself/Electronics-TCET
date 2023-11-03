@@ -7,19 +7,22 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({});
+
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (user) => {
       if (user) {
         const userDocRef = doc(db, "users", user.uid); // Assuming "users" is your collection name
+        console.log(user, "user")
         try {
           const docSnapshot = await getDoc(userDocRef);
           if (docSnapshot.exists()) {
             setCurrentUser(docSnapshot.data()); // Set user data to state
+            console.log(currentUser, "current")
           } else {
             // Handle the case where the user document doesn't exist
           }
         } catch (error) {
-          // Handle any errors that occurred during fetching the user document
+          // Handle any errors that occurred during fetching the user documentz
           console.error("Error getting user document:", error);
         }
       } else {
@@ -30,11 +33,11 @@ export const AuthContextProvider = ({ children }) => {
       unsub();
     };
   }, []);
-
+  console.log(currentUser, "currentuser")
  
 
   return (
-    <AuthContext.Provider value={{ currentUser }}>
+    <AuthContext.Provider value={{ currentUser, setCurrentUser }}>
       {children}
     </AuthContext.Provider>
   );
