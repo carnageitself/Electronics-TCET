@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import Swal from 'sweetalert2'
 
 export default function Login() {
 
@@ -18,15 +18,34 @@ export default function Login() {
     
       try {
         await signInWithEmailAndPassword(auth, email, password);
+        showSuccess()
         // Successfully signed in, navigate to the desired page
         navigate("/");
       } catch (error) {
         // Handle authentication errors here
         setError(true);
         console.error(error);
+        showAlert(error.message)
       }
     };
     
+    function showAlert(errorMessage) {
+      Swal.fire({
+        title: errorMessage,
+        text: 'Please try again!',
+        icon: 'error',
+        confirmButtonText: 'Okay'
+      })
+    }
+
+    function showSuccess() {
+      Swal.fire({
+        title: "Succesfully Logged in",
+        text: '',
+        icon: 'success',
+        confirmButtonText: 'Okay'
+      })
+    }
 
     return (
       <>
@@ -92,7 +111,7 @@ export default function Login() {
                 >
                   Sign in
                 </button>
-                {error && <span className="text-red-500 font-normal">Wrong email or password!</span>}
+                {error && <span className="text-red-500 font-normal"></span>}
               </div>
             </form>
   

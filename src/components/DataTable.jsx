@@ -1,39 +1,22 @@
-import React from 'react'
-import { DataGrid } from '@mui/x-data-grid';
-import { userColumns, userRows } from '../constants/DataSource';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { DataGrid } from "@mui/x-data-grid";
+import { Link } from "react-router-dom";
 import {
   collection,
-  getDocs,
   deleteDoc,
   doc,
   onSnapshot,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import Modal from './Modal';
+import Swal from "sweetalert2";
+import { userColumns } from '../constants/DataSource';
+import { AuthContext } from "../context/AuthContext";
 
 const DataTable = () => {
-
   const [data, setData] = useState([]);
- 
-  useEffect(() => {
-    //const fetchData = async () => {
-    // let list = [];
-    // try {
-    //  const querySnapshot = await getDocs(collection(db, "users"));
-    //  querySnapshot.forEach((doc) => {
-    //    list.push({ id: doc.id, ...doc.data() });
-    //   });
-    //  setData(list);
-    //  console.log(list);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    // };
-    //fetchData();
+  const { currentUser } = useContext(AuthContext);
 
-    //REALTIME
+  useEffect(() => {
     const unsub = onSnapshot(
       collection(db, "users"),
       (snapShot) => {
@@ -52,17 +35,39 @@ const DataTable = () => {
     };
   }, []);
 
-  console.log(data) //xd
-
-
   const handleDelete = async (id) => {
     try {
       await deleteDoc(doc(db, "users", id));
       setData(data.filter((item) => item.id !== id));
+      showDelete();
     } catch (err) {
       console.log(err);
     }
   };
+
+  function showDelete() {
+    Swal.fire({
+      title: "Account Successfully Deleted!",
+      text: "",
+      icon: "success",
+      confirmButtonText: "Okay",
+    });
+  }
+
+  function deleteConfirmation(id) {
+    Swal.fire({
+      title: "Delete Account?",
+      text:
+        "Are you sure you want to delete this account? All of this data will be permanently removed. This action cannot be undone.",
+      icon: "warning",
+      showConfirmButton: true,
+      showCancelButton: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleDelete(id);
+      }
+    });
+  }
 
   const actionColumn = [
     {
@@ -77,8 +82,7 @@ const DataTable = () => {
             </Link>
             <div
               className="deleteButton p-1 rounded text-red-500 border cursor-pointer"
-              onClick={() => handleDelete(params.row.id)}
-              // onClick={()=> setOpen(!open)}
+              onClick={() => deleteConfirmation(params.row.id)}
             >
               Delete
             </div>
@@ -90,22 +94,22 @@ const DataTable = () => {
 
   return (
     <div className="datatable h-[80%] p-2 mx-10">
-    <div className="datatableTitle w-[100%] mb-10 flex items-center justify-between mt-8 border-green-700">
-      Add New Student
-      <Link to="/users/new" className="link text-green-400 border rounded p-1 cursor-pointer">
-        Add New
-      </Link>
+     {currentUser.admin && <div className="datatableTitle w-[100%] mb-10 flex items-center justify-between mt-8 border-green-700">
+       Add New Student
+        <Link to="/users/new" className="link text-green-400 border rounded p-1 cursor-pointer">
+          Add New
+        </Link>
+      </div>}
+      <DataGrid
+        className={currentUser.admin ? "datagrid" : "datagrid mt-20"}
+        rows={data}
+        columns={userColumns.concat(actionColumn)}
+        pageSize={9}
+        rowsPerPageOptions={[9]}
+        checkboxSelection
+      />
     </div>
-    <DataGrid
-      className="datagrid"
-      rows={data}
-      columns={userColumns.concat(actionColumn)}
-      pageSize={9}
-      rowsPerPageOptions={[9]}
-      checkboxSelection
-    />
-  </div>
-  )
-}
+  );
+};
 
-export default DataTable
+export default DataTable;

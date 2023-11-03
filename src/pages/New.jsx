@@ -13,6 +13,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+
 
 const New = ({ inputs }) => {
   const [file, setFile] = useState("");
@@ -81,10 +83,30 @@ const New = ({ inputs }) => {
         timeStamp: serverTimestamp(),
       });
       navigate(-1);
-    } catch (err) {
-      console.log(err);
+      showAdd()
+    } catch (error) {
+      console.log(error);
+      showAlert(error.message)
     }
   };
+
+  function showAdd() {
+    Swal.fire({
+      title: "Account Successfully Added!",
+      text: "",
+      icon: "success",
+      confirmButtonText: "Okay",
+    });
+  }
+
+  function showAlert(errorMessage) {
+    Swal.fire({
+      title: errorMessage,
+      text: 'Please try again!',
+      icon: 'error',
+      confirmButtonText: 'Okay'
+    })
+  }
 
   return (
     <div className="new w-full h-full my-10">

@@ -8,6 +8,7 @@ import { DarkModeContext } from "../context/DarkModeContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
+import Swal from 'sweetalert2'
 
 const Navbar = () => {
   const [side, setSide] = useState(false);
@@ -21,10 +22,18 @@ const Navbar = () => {
   const handleSignOut = async () => {
     await signOut(auth);
     setCurrentUser(null)
+    showLogout()
     navigate("/login");
   };
 
- 
+  function showLogout() {
+    Swal.fire({
+      title: "Succesfully Logged Out",
+      text: '',
+      icon: 'info',
+      confirmButtonText: 'Okay'
+    })
+  }
 
   return (
     <div
