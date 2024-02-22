@@ -47,19 +47,20 @@ export default function SmallCalendar() {
   return (
     <div className="mt-9">
       <header className="flex justify-between items-center">
-        <p className="text-gray-500 font-bold">
+      
+        <div className="flex items-center">
+          <button onClick={handlePrevMonth}>
+            <span className="material-icons-outlined cursor-pointer text-gray-800 mx-2">
+              <FiChevronLeft/>
+            </span>
+          </button>
+          <p className="text-gray-800 font-bold mx-5">
           {dayjs(new Date(dayjs().year(), currentMonthIdx)).format(
             "MMMM YYYY"
           )}
         </p>
-        <div>
-          <button onClick={handlePrevMonth}>
-            <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-              <FiChevronLeft/>
-            </span>
-          </button>
           <button onClick={handleNextMonth}>
-            <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
+            <span className="material-icons-outlined cursor-pointer text-gray-800 mx-2">
               <FiChevronRight/>
             </span>
           </button>

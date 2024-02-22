@@ -13,7 +13,6 @@ import Swal from 'sweetalert2'
 const Navbar = () => {
   const [side, setSide] = useState(false);
   const [open, setOpen] = useState(false);
-  const { pathname } = useLocation();
   const { dispatch } = useContext(DarkModeContext);
   const { currentUser, setCurrentUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -105,7 +104,7 @@ const Navbar = () => {
                     </>
                   )}
                   <Link
-                    to="/users/profile"
+                    to="/profile"
                     className="link cursor-pointer  hover:bg-slate-50 p-2"
                   >
                     Profile

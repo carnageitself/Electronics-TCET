@@ -7,23 +7,25 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import { Tilt } from "react-tilt";
 import { DarkModeContext } from "../context/DarkModeContext";
+import { Link } from "react-router-dom";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 
 
 const Widgets = ({ type }) => {
   let data;
 
   //temporary
-  const amount = 100;
-  const diff = 20;
-
-  const isPositive = true;
+  const amount = "Updated";
 
   switch (type) {
     case "user":
       data = {
         title: "STUDENTS",
         isMoney: false,
-        link: "See all Students",
+        link: "/",
+        tag: "See all Students",
         icon: (
           <PersonOutlineOutlinedIcon
             className="icon p-1 self-end"
@@ -39,7 +41,8 @@ const Widgets = ({ type }) => {
       data = {
         title: "FACULTY",
         isMoney: false,
-        link: "View all Faculty",
+        link: "/",
+        tag: "View all Faculty",
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon p-1 self-end"
@@ -55,11 +58,12 @@ const Widgets = ({ type }) => {
       data = {
         title: "EVENTS",
         isMoney: false,
-        link: "View all Events",
+        link: "/events",
+        tag: "View all Events",
         icon: (
-          <MonetizationOnOutlinedIcon
+          <EventAvailableOutlinedIcon
             className="icon p-1 self-end"
-            style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
+            style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green", border: "1px solid green"}}
           />
         ),
       };
@@ -68,13 +72,15 @@ const Widgets = ({ type }) => {
       data = {
         title: "ATTENDANCE",
         isMoney: false,
-        link: "See Details",
+        link: "/profile",
+        tag: "See Details",
         icon: (
-          <AccountBalanceWalletOutlinedIcon
+          <SchoolOutlinedIcon
             className="icon p-1 self-end"
             style={{
-              backgroundColor: "rgba(128, 0, 128, 0.2)",
-              color: "purple",
+              backgroundColor: "rgb(153, 102, 255, 0.2)",
+              color: "rgb(153, 102, 255)",
+              border: "1px solid rgb(153, 102, 255)"
             }}
           />
         ),
@@ -86,24 +92,23 @@ const Widgets = ({ type }) => {
 
   const { darkMode } = useContext(DarkModeContext);
   return (
-    <Tilt className={darkMode ? "dark flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg" : "widget flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg bg-slate-50"}>
+    <Tilt className={darkMode ? "dark flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg" : "widget flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg"}>
       <div className="left flex flex-col justify-between">
-        <div className="title font-bold text-sm text-gray-600">
+        <div className="title font-bold text-lg text-gray-600">
           {data.title}
         </div>
-        <div className="counter text-lg">
+        <div className="counter text-md">
           {data.isMoney && "$"} {amount}
         </div>
-        <div className="link border-b cursor-pointer">{data.link}</div>
+        <Link to={data.link}>
+        <div className="link underline underline-offset-2 cursor-pointer">{data.tag}</div>
+        </Link>
       </div>
       <div
-        className={`right flex flex-col justify-between ${
-          !isPositive ? "text-red-500" : "text-green-600"
-        }`}
+        className={`right flex flex-col justify-between text-blue-500`}
       >
-        <div className="percentage flex items-center">
-          {isPositive ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}{" "}
-          {diff} %
+        <div className="percentage flex items-center cursor-pointer">
+         <InfoOutlinedIcon/>
         </div>
 
         {data.icon}

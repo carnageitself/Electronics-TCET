@@ -21,17 +21,18 @@ import { DarkModeContext } from "./context/DarkModeContext";
 import Admin from "./pages/Admin";
 
 function App() {
-  
   const { currentUser } = useContext(AuthContext);
-  const RequireAuth = ({ children }) => {
-    return currentUser ? children : <Navigate to="/login" />;
-  };
+  // const RequireAuth = ({ children }) => {
+  //   // return currentUser ? children : <Navigate to="/login" />;
+  //   console.log(currentUser, "bsdk")
+  //   return children
+  // };
   const { darkMode } = useContext(DarkModeContext);
 
   const Layout = () => {
     return (
       <>
-        <Navbar/>
+        <Navbar />
         <Outlet />
         <Footer />
       </>
@@ -49,73 +50,41 @@ function App() {
       children: [
         {
           path: "/",
-          element: (
-            <RequireAuth>
-              {" "}
-              <Home />
-            </RequireAuth>
-          ),
+          element: <Home />,
         },
         {
           path: "/users",
-          element: (
-            <RequireAuth>
-              {" "}
-              <Users />
-            </RequireAuth>
-          ),
+          element: <Users />,
         },
         {
           path: "/attendance",
-          element: (
-            <RequireAuth>
-              <Attendance />
-            </RequireAuth>
-          ),
+          element: <Attendance />,
         },
         {
           path: "/events",
-          element: (
-            <RequireAuth>
-              <Events />
-            </RequireAuth>
-          ),
+          element: <Events />,
         },
         {
           path: "/kanban",
-          element: (
-            <RequireAuth>
-              {" "}
-              <Kanban />
-            </RequireAuth>
-          ),
+          element: <Kanban />,
         },
         {
           path: "/users/new",
-          element: (
-            <RequireAuth>
-              <New inputs={userInputs} title="Add New User" />
-            </RequireAuth>
-          ),
+          element: <New inputs={userInputs}/>,
         },
         {
-          path: "/users/:userid",
-          element: (
-            <RequireAuth>
-              <Profile />
-            </RequireAuth>
-          ),
+          path: "/profile",
+          element: <Profile />,
+        },
+        {
+          path: "/user/profile/:id",
+          element: <Profile />,
         },
         {
           path: "/admin",
-          element: (
-            <RequireAuth>
-              <Admin />
-            </RequireAuth>
-          ),
+          element: <Admin />,
         },
       ],
-     
     },
   ]);
 

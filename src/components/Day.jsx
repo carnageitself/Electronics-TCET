@@ -13,22 +13,10 @@ export default function Day({ day, rowIdx }) {
 
   useEffect(() => {
     const events = filteredEvents.filter(
-      (evt) =>
-        dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
+      (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
     );
     setDayEvents(events);
   }, [filteredEvents, day]);
-
-  function hexToRgbA(hex, alpha) {
-    let r = parseInt(hex.slice(1, 3), 16);
-    let g = parseInt(hex.slice(3, 5), 16);
-    let b = parseInt(hex.slice(5, 7), 16);
-  
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-  }
-  
-  
-  
 
   function getCurrentDayClass() {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
@@ -36,16 +24,12 @@ export default function Day({ day, rowIdx }) {
       : "";
   }
   return (
-    <div className="border border-gray-200 flex flex-col">
+    <div className="border border-gray-300 flex flex-col">
       <header className="flex flex-col items-center">
         {rowIdx === 0 && (
-          <p className="text-sm mt-1">
-            {day.format("ddd").toUpperCase()}
-          </p>
+          <p className="text-sm mt-1">{day.format("ddd").toUpperCase()}</p>
         )}
-        <p
-          className={`text-sm p-1 my-1 text-center  ${getCurrentDayClass()}`}
-        >
+        <p className={`text-sm p-1 my-1 text-center  ${getCurrentDayClass()}`}>
           {day.format("DD")}
         </p>
       </header>
@@ -57,14 +41,16 @@ export default function Day({ day, rowIdx }) {
         }}
       >
         {dayEvents.map((evt, idx) => (
-        <div
-        key={idx}
-        onClick={() => setSelectedEvent(evt)}
-        className={`p-1 mr-3 text-sm rounded mb-1 truncate opaque-color`}
-        style={{ backgroundColor: `${evt.label}` }}
-      >
-        <span className="text-white">{evt.title}</span>
-      </div>
+          <div
+            key={idx}
+            onClick={() => setSelectedEvent(evt)}
+            className={`p-1 mx-1 text-sm rounded mb-1 truncate`}
+            style={{ backgroundColor: `${evt.label}`, opacity: 0.6 }}
+          >
+            <span className="text-white font-medium">
+              {evt.title}
+            </span>
+          </div>
         ))}
       </div>
     </div>

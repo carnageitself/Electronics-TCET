@@ -3,7 +3,7 @@ import DataTable from '../components/DataTable'
 
 const Users = () => {
   return (
-    <div className="users h-full flex flex-col">
+    <div className="users h-screen">
       <div className="bottom">
         <DataTable/>
       </div>

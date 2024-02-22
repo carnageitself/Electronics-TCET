@@ -22,7 +22,7 @@ const DataTable = () => {
       (snapShot) => {
         let list = [];
         snapShot.docs.forEach((doc) => {
-          list.push({ id: doc.id, ...doc.data() });
+          list.push({ id: doc?.id, ...doc.data() });
         });
         setData(list);
       },
@@ -77,7 +77,7 @@ const DataTable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction flex items-center gap-3">
-            <Link to="/users/profile" style={{ textDecoration: "none" }}>
+            <Link to={`/users/profile/${params.row.id}`} style={{ textDecoration: "none" }}>
               <div className="viewButton rounded border cursor-pointer p-1 text-green-500">View</div>
             </Link>
             <div
@@ -94,9 +94,9 @@ const DataTable = () => {
 
   return (
     <div className="datatable h-[80%] p-2 mx-10">
-     {currentUser.admin && <div className="datatableTitle w-[100%] mb-10 flex items-center justify-between mt-8 border-green-700">
-       Add New Student
-        <Link to="/users/new" className="link text-green-400 border rounded p-1 cursor-pointer">
+     {currentUser.admin && <div className="datatableTitle w-[100%] mb-10 flex items-center justify-between mt-8 ">
+      <h1 className="text-xl border p-2 rounded">User's Directory</h1>
+        <Link to="/users/new" className="link font-semibold text-green-500 border rounded p-2 cursor-pointer greenbg">
           Add New
         </Link>
       </div>}

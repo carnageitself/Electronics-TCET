@@ -118,6 +118,26 @@
   color: white;
 }
 
-.opaque-color {
-  opacity: 0.3; 
+body::-webkit-scrollbar{
+  display: none;
+}
+
+.redbg{
+  background-color:rgba(255, 99, 132, 0.2);
+  /* border: 1px solid rgb(255, 99, 132); */
+}
+
+.greenbg{
+  background-color: rgba(75, 192, 192, 0.2);
+  /* border: 1px solid rgba(75, 192, 192) */
+}
+
+.graybg{
+  background-color: rgba(201, 203, 207, 0.2);
+  /* border: 1px solid rgba(201, 203, 207) */
+}
+
+.bluebg{
+  background-color: rgba(54, 162, 235, 0.2);
+  /* border: 1px solid rgba(54, 162, 235) */
 }

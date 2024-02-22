@@ -21,31 +21,34 @@ export default function CalendarHeader() {
     );
   }
   return (
-    <header className="px-4 py-2 flex items-center">
-      <h1 className="mr-10 text-xl text-gray-500 font-title">
-        Events
+    <header className="px-4 py-2 flex items-center justify-between">
+      <h1 className="mr-10 text-2xl text-gray-800 font-semibold border rounded px-2 py-3">
+        Events Schedule
       </h1>
-      <button
-        onClick={handleReset}
-        className="border rounded py-2 px-4 mr-5"
-      >
-        Today
-      </button>
+     <div className="flex items-center">
       <button onClick={handlePrevMonth}>
-        <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
+        <span className="material-icons-outlined cursor-pointer text-gray-800 mx-2">
           <FiChevronLeft/>
         </span>
       </button>
-      <button onClick={handleNextMonth}>
-        <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-          <FiChevronRight/>
-        </span>
-      </button>
-      <h2 className="ml-4 text-xl text-gray-500 font-bold">
+     
+      <h2 className="mx-5 text-xl text-gray-800 font-semibold ">
         {dayjs(new Date(dayjs().year(), monthIndex)).format(
           "MMMM YYYY"
         )}
       </h2>
+      <button onClick={handleNextMonth}>
+        <span className="material-icons-outlined cursor-pointer text-gray-800 mx-2">
+          <FiChevronRight/>
+        </span>
+      </button>
+      </div>
+      <button
+        onClick={handleReset}
+        className="border rounded py-2 px-4 mr-5 border-gray-500 shadow-md"
+      >
+        Today
+      </button>
     </header>
   );
 }

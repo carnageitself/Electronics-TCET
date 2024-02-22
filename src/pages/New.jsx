@@ -1,25 +1,19 @@
-
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
-import {
-  addDoc,
-  collection,
-  doc,
-  serverTimestamp,
-  setDoc,
-} from "firebase/firestore";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { auth, db, storage } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2';
-
+import Swal from "sweetalert2";
+import { Checkbox, Input } from "@material-tailwind/react";
 
 const New = ({ inputs }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [per, setPer] = useState(null);
+  const [active, setActive] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -83,10 +77,10 @@ const New = ({ inputs }) => {
         timeStamp: serverTimestamp(),
       });
       navigate(-1);
-      showAdd()
+      showAdd();
     } catch (error) {
       console.log(error);
-      showAlert(error.message)
+      showAlert(error.message);
     }
   };
 
@@ -102,66 +96,86 @@ const New = ({ inputs }) => {
   function showAlert(errorMessage) {
     Swal.fire({
       title: errorMessage,
-      text: 'Please try again!',
-      icon: 'error',
-      confirmButtonText: 'Okay'
-    })
+      text: "Please try again!",
+      icon: "error",
+      confirmButtonText: "Okay",
+    });
   }
 
   return (
     <div className="new w-full h-full my-10">
-
       <div className="newContainer flex flex-col border rounded-xl mx-10">
-      
-      
-
-          <div className="top flex justify-center items-center">
-            <img
-              src={
-                file
-                  ? URL.createObjectURL(file)
-                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-              }
-              alt=""
-              className="w-32 h-32 rounded-full my-3"
-            />
-          </div>
-          <div className="bottom flex flex-1 my-5 flex-col">
-            <form onSubmit={handleAdd} className="flex flex-col">
-              <div className="formInput grid grid-cols-3 gap-8 mx-20">
-                <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon text-gray-500 cursor-pointer" />
-                </label>
-                <input
-                
-                  type="file"
-                  id="file"
-                  onChange={(e) => setFile(e.target.files[0])}
-                  style={{ display: "none" }}
-                />
+        <div className="top flex justify-center items-center">
+          <img
+            src={
+              file
+                ? URL.createObjectURL(file)
+                : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+            }
+            alt=""
+            className="w-32 h-32 rounded-full my-3"
+          />
+        </div>
+        <div className="bottom flex flex-1 my-5 flex-col">
+          <form onSubmit={handleAdd} className="flex flex-col">
+            <div className="formInput grid grid-cols-3 gap-8 mx-20">
+              <label htmlFor="file">
+                <span className="flex gap-3">
+                  <h1 className="text-gray-700">Profile Image:</h1>{" "}
+                  <DriveFolderUploadOutlinedIcon className="icon text-gray-700 cursor-pointer" />
+                </span>
+              </label>
+              <input
+                type="file"
+                id="file"
+                required={true}
+                onChange={(e) => setFile(e.target.files[0])}
+                style={{ display: "none" }}
+              />
 
               {inputs.map((input) => (
-                <div className="formInput" key={input.id}>
-                  <label>{input.label}:</label>
-                  <input
-                    id={input.id}
-                    type={input.type}
-                    placeholder={input.placeholder}
+                <div className="formInput" key={input?.id}>
+                  <Input
+                    label={input.label}
+                    id={input?.id}
+                    type={input?.type}
+                    placeholder={input?.placeholder}
                     onChange={handleInput}
-                    className="ml-2 bg-transparent"
-                    />
+                    required
+                    className="bg-transparent"
+                  />
                 </div>
               ))}
-              </div>
-             <div className="flex justify-center items-center mt-10">
-             <button disabled={per !== null && per < 100} type="submit" className="bg-green-500 px-4 py-2 rounded-lg" onSubmit={handleAdd}>
-                Send
+            </div>
+            {/* <div className="ml-16 mt-5">
+              <Checkbox
+                label={
+                  <>
+                    Agree to our{" "}
+                    <span className="text-blue-600 cursor-pointer underline underline-offset-1">
+                      privacy policy.
+                    </span>
+                  </>
+                }
+                checked={active}
+                onChange={setActive}
+              />
+            </div> */}
+            <div className="flex justify-center items-center mt-10">
+              <button
+                disabled={per !== null && per < 100}
+                
+                type="submit"
+                className="bg-green-500 px-4 py-2 rounded-lg"
+                onSubmit={handleAdd}
+              >
+                Submit
               </button>
-             </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ export const userColumns = [
     {
       field: "name",
       headerName: "Name",
-      width: 250,
+      width: 270,
       renderCell: (params) => {
         return (
           <div className="cellWithImg flex gap-5 items-center">
@@ -16,7 +16,7 @@ export const userColumns = [
     {
       field: "email",
       headerName: "Email",
-      width: 250,
+      width: 270,
     },
     {
       field: "batch",

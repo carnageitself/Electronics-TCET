@@ -8,10 +8,10 @@ import { DarkModeContextProvider } from "./context/DarkModeContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <DarkModeContextProvider>
-  <ContextWrapper>
-    <AuthContextProvider>
-      <App />
-    </AuthContextProvider>
-  </ContextWrapper>
+    <ContextWrapper>
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
+    </ContextWrapper>
   </DarkModeContextProvider>
 );
