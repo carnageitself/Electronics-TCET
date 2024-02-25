@@ -61,13 +61,13 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="links flex gap-6 items-center font-medium">
-          <span>
+          {/* <span>
             {" "}
             <DarkModeOutlinedIcon
               className={darkMode ? "dark cursor-pointer rounded-full" : "icon cursor-pointer hover:bg-slate-100 rounded-full"}
               onClick={() => dispatch({ type: "TOGGLE" })}
             />
-          </span>
+          </span> */}
           {/* <div className="">
           <span><NotificationsNoneOutlinedIcon className="icon cursor-pointer"/></span>
           <div className="counter w-4 h-4 bg-red-500 text-white flex items-center justify-center text-xs font-bold absolute top-6 right-[145px] rounded-full">1</div>
@@ -96,7 +96,7 @@ const Navbar = () => {
                   {currentUser?.admin && (
                     <>
                       <Link
-                        to="/admin"
+                        to="/users"
                         className="link cursor-pointer hover:bg-slate-50 p-2 text-green-500"
                       >
                         Admin

@@ -22,11 +22,9 @@ import Admin from "./pages/Admin";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
-  // const RequireAuth = ({ children }) => {
-  //   // return currentUser ? children : <Navigate to="/login" />;
-  //   console.log(currentUser, "bsdk")
-  //   return children
-  // };
+  const RequireAuth = ({ children }) => {
+    return currentUser && children;
+  };
   const { darkMode } = useContext(DarkModeContext);
 
   const Layout = () => {
@@ -46,7 +44,7 @@ function App() {
     },
     {
       path: "/",
-      element: <Layout />,
+      element:<RequireAuth><Layout /></RequireAuth> ,
       children: [
         {
           path: "/",

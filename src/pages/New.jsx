@@ -142,7 +142,7 @@ const New = ({ inputs }) => {
                     placeholder={input?.placeholder}
                     onChange={handleInput}
                     required
-                    className="bg-transparent"
+                    className="bg-transparent placeholder:text-gray-700"
                   />
                 </div>
               ))}

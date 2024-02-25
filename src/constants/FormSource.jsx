@@ -15,7 +15,7 @@ export const userInputs = [
     id: "rollno",
     label: "Roll No",
     type: "number",
-    placeholder: "123",
+    placeholder: "01",
   },
   {
     id: "contact",
@@ -69,18 +69,18 @@ export const userInputs = [
     id: "age",
     label: "Age",
     type: "text",
-    placeholder: "25",
+    placeholder: "21",
   },
   {
     id: "gender",
     label: "Gender",
     type: "text",
-    placeholder: "Male",
+    placeholder: "Male / Female",
   },
   {
     id: "status",
     label: "Activity Status",
     type: "text",
-    placeholder: "Active",
+    placeholder: "Active / Defaulter",
   },
 ];

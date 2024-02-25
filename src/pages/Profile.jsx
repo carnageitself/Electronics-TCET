@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import DropDOwn from "../components/Dropdown";
 
 const Profile = () => {
   const { id } = useParams();
@@ -102,11 +103,12 @@ const Profile = () => {
         </div>
       </div>
       <div className="bottom p-5 m-3">
-        <div className="title mb-5 mx-12 flex justify-between">
-          <h1 className="border p-2 text-xl rounded bluebg">Academic Transcripts</h1>
-          <a href="mailto:1032201286@tcetmumbai.in" className="py-1 text-red-500 font-semibold border rounded px-2 items-center cursor-pointer flex gap-2 redbg">Report<ErrorOutlineIcon/></a>
-        </div>
         <AcademicTable />
+        <div className="title my-5 mx-12 flex justify-between items-center">
+          <h1 className="border p-2 text-xl rounded">Academic Transcripts</h1>
+          {/* <a href="mailto:1032201286@tcetmumbai.in" className="p-1 px-2 text-red-500 font-semibold border rounded items-center cursor-pointer flex gap-2 redbg">Report<ErrorOutlineIcon/></a> */}
+          <DropDOwn/>
+        </div>
         <List />
       </div>
     </div>
