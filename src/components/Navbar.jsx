@@ -11,6 +11,7 @@ import { AuthContext } from "../context/AuthContext";
 import Swal from 'sweetalert2'
 
 const Navbar = () => {
+
   const [side, setSide] = useState(false);
   const [open, setOpen] = useState(false);
   const { dispatch } = useContext(DarkModeContext);
@@ -34,17 +35,11 @@ const Navbar = () => {
     })
   }
 
+
   return (
-    <div
-      className={
-        darkMode
-          ? "dark flex flex-col items-center sticky z-10 top-0 bg-black"
-          : "navbar flex flex-col items-center sticky z-10 top-0 bg-white"
-      }
-    >
-      <div className="container w-full flex justify-between pl-3 pr-6 py-0 h-20 border-b">
-        <div className="logo text-lg font-bold flex items-center">
-          <div className="text-gray-700">
+    <div className='w-full h-20 border-b flex justify-between bg-white z-10 top-0 sticky px-5'>
+       <div className="logo text-lg font-bold flex items-center">
+          <div className="text-black">
             <Hamburger toggled={side} toggle={setSide} size={30} />
           </div>
           {side && (
@@ -91,13 +86,13 @@ const Navbar = () => {
               />
 
               {open && (
-                <div className="options absolute top-16 right-0 py-5 px-3 bg-white border flex flex-col gap-2 w-[200px] font-normal rounded-xl bg-transparent">
+                <div className="options absolute top-16 right-0 py-5 px-3 bg-white border flex flex-col gap-2 w-[200px] font-normal rounded-xl">
                   <span className="p-2">{currentUser?.name}</span>
                   {currentUser?.admin && (
                     <>
                       <Link
                         to="/users"
-                        className="link cursor-pointer hover:bg-slate-50 p-2 text-green-500"
+                        className="link cursor-pointer hover:bg-slate-100 p-2 text-green-500"
                       >
                         Admin
                       </Link>
@@ -105,12 +100,12 @@ const Navbar = () => {
                   )}
                   <Link
                     to="/profile"
-                    className="link cursor-pointer  hover:bg-slate-50 p-2"
+                    className="link cursor-pointer  hover:bg-slate-100 p-2"
                   >
                     Profile
                   </Link>
                   <span
-                    className="link cursor-pointer  hover:bg-slate-50 p-2 text-red-500"
+                    className="link cursor-pointer  hover:bg-slate-100 p-2 text-red-500"
                     onClick={handleSignOut}
                   >
                     Log Out
@@ -125,8 +120,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

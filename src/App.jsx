@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Users from "./pages/Users";
-import Attendance from "./pages/Attendance";
+import Classroom from "./pages/Classroom";
 import Events from "./pages/Events";
 import Kanban from "./pages/Kanban";
 import New from "./pages/New";
@@ -44,43 +44,43 @@ function App() {
     },
     {
       path: "/",
-      element:<RequireAuth><Layout /></RequireAuth> ,
+      element:<Layout />,
       children: [
         {
           path: "/",
-          element: <Home />,
+          element:<RequireAuth><Home /></RequireAuth> ,
         },
         {
           path: "/users",
-          element: <Users />,
+          element:<RequireAuth> <Users /></RequireAuth>,
         },
         {
-          path: "/attendance",
-          element: <Attendance />,
+          path: "/classroom",
+          element:<RequireAuth><Classroom /></RequireAuth> ,
         },
         {
           path: "/events",
-          element: <Events />,
+          element:<RequireAuth><Events /></RequireAuth> ,
         },
         {
           path: "/kanban",
-          element: <Kanban />,
+          element: <RequireAuth><Kanban /></RequireAuth>,
         },
         {
           path: "/users/new",
-          element: <New inputs={userInputs}/>,
+          element:<RequireAuth> <New inputs={userInputs}/></RequireAuth>,
         },
         {
           path: "/profile",
-          element: <Profile />,
+          element:<RequireAuth><Profile /></RequireAuth> ,
         },
         {
           path: "/user/profile/:id",
-          element: <Profile />,
+          element:<RequireAuth> <Profile /></RequireAuth>,
         },
         {
           path: "/admin",
-          element: <Admin />,
+          element:<RequireAuth> <Admin /></RequireAuth>,
         },
       ],
     },

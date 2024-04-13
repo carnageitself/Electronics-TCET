@@ -26,12 +26,15 @@ const Widgets = ({ type }) => {
         isMoney: false,
         link: "/",
         tag: "See all Students",
+        bg: "rgba(255, 0, 0, 0.2)",
+        border: "1px solid crimson",
         icon: (
           <PersonOutlineOutlinedIcon
             className="icon p-1 self-end"
             style={{
               color: "crimson",
               backgroundColor: "rgba(255, 0, 0, 0.2)",
+              border: "1px solid crimson"
             }}
           />
         ),
@@ -43,12 +46,15 @@ const Widgets = ({ type }) => {
         isMoney: false,
         link: "/",
         tag: "View all Faculty",
+        bg: "rgba(218, 165, 32, 0.2)",
+        border: "1px solid goldenrod",
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon p-1 self-end"
             style={{
               backgroundColor: "rgba(218, 165, 32, 0.2)",
               color: "goldenrod",
+              border: "1px solid goldenrod"
             }}
           />
         ),
@@ -60,6 +66,8 @@ const Widgets = ({ type }) => {
         isMoney: false,
         link: "/events",
         tag: "View all Events",
+        bg: "rgba(0, 128, 0, 0.2)",
+        border: "1px solid green",
         icon: (
           <EventAvailableOutlinedIcon
             className="icon p-1 self-end"
@@ -74,6 +82,8 @@ const Widgets = ({ type }) => {
         isMoney: false,
         link: "/profile",
         tag: "See Details",
+        bg: "rgb(153, 102, 255, 0.2)",
+        border: "1px solid rgb(153, 102, 255)",
         icon: (
           <SchoolOutlinedIcon
             className="icon p-1 self-end"
@@ -92,9 +102,9 @@ const Widgets = ({ type }) => {
 
   const { darkMode } = useContext(DarkModeContext);
   return (
-    <Tilt className={darkMode ? "dark flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg" : "widget flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg"}>
+    <Tilt className={`flex sm:w-1/5 w-full justify-between border h-[130px] p-3 rounded-lg`} style={{backgroundColor: `${data.bg}`, border: `${data.border}`}}>
       <div className="left flex flex-col justify-between">
-        <div className="title font-bold text-lg text-gray-600">
+        <div className="title font-bold text-lg text-black">
           {data.title}
         </div>
         <div className="counter text-md">
