@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import AddIcon from "@mui/icons-material/Add";
 import bg from "../../src/assets/school.jpg";
-import yash from "../../src/assets/yashXD.jpg";
+import yash from "../../src/assets/yash2.jpg";
 import Modal from "@mui/material/Modal";
 import {
   Button,
@@ -347,7 +347,7 @@ const Classroom = () => {
                   <div className="text-xl font-bold text-neutral-600 dark:text-white mt-4 flex items-center w-full justify-between relative px-5">
                     <img
                       src={project.profile}
-                      className="object-contain absolute h-24 w-24 rounded-full object-center -top-16 right-5 cursor-pointer"
+                      className="object-cover absolute h-24 w-24 rounded-full object-center -top-16 right-5 cursor-pointer"
                       alt="image not found :("
                     />
                     <div className="flex items-center w-[80%] relative">
