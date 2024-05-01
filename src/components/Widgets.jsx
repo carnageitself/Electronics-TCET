@@ -11,6 +11,9 @@ import { Link } from "react-router-dom";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import InsertChartOutlinedSharpIcon from '@mui/icons-material/InsertChartOutlinedSharp';
+import ReduceCapacityOutlinedIcon from '@mui/icons-material/ReduceCapacityOutlined';
+import CoPresentOutlinedIcon from '@mui/icons-material/CoPresentOutlined';
 
 
 const Widgets = ({ type }) => {
@@ -29,12 +32,12 @@ const Widgets = ({ type }) => {
         bg: "rgba(255, 0, 0, 0.2)",
         border: "1px solid crimson",
         icon: (
-          <PersonOutlineOutlinedIcon
+          <ReduceCapacityOutlinedIcon
             className="icon p-1 self-end"
             style={{
               color: "crimson",
               backgroundColor: "rgba(255, 0, 0, 0.2)",
-              border: "1px solid crimson"
+    
             }}
           />
         ),
@@ -49,12 +52,12 @@ const Widgets = ({ type }) => {
         bg: "rgba(218, 165, 32, 0.2)",
         border: "1px solid goldenrod",
         icon: (
-          <ShoppingCartOutlinedIcon
+          <CoPresentOutlinedIcon
             className="icon p-1 self-end"
             style={{
               backgroundColor: "rgba(218, 165, 32, 0.2)",
               color: "goldenrod",
-              border: "1px solid goldenrod"
+            
             }}
           />
         ),
@@ -71,7 +74,7 @@ const Widgets = ({ type }) => {
         icon: (
           <EventAvailableOutlinedIcon
             className="icon p-1 self-end"
-            style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green", border: "1px solid green"}}
+            style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green"}}
           />
         ),
       };
@@ -85,12 +88,11 @@ const Widgets = ({ type }) => {
         bg: "rgb(153, 102, 255, 0.2)",
         border: "1px solid rgb(153, 102, 255)",
         icon: (
-          <SchoolOutlinedIcon
+          <InsertChartOutlinedSharpIcon
             className="icon p-1 self-end"
             style={{
               backgroundColor: "rgb(153, 102, 255, 0.2)",
               color: "rgb(153, 102, 255)",
-              border: "1px solid rgb(153, 102, 255)"
             }}
           />
         ),

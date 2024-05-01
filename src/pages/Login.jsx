@@ -6,12 +6,30 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Button, Input } from "@material-tailwind/react";
 import ReCAPTCHA from "react-google-recaptcha";
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
 export default function Login() {
   const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [captcha, setCaptcha] = useState(false);
+  const [type, setType]=useState('password');
+  const [icon, setIcon]=useState(VisibilityOutlinedIcon);
+  const [active, setActive] = useState(false)
+
+  const handleToggle = () => {
+    if (type === 'password') {
+      setIcon(VisibilityOffOutlinedIcon);
+      setType('text');
+    } else {
+      setIcon(VisibilityOutlinedIcon);
+      setType('password');
+    }
+  }
 
   const devkey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
   const sitekey = "6LdJHXspAAAAAEwPg-XFQ5N7cyIVUqOQseDrKpYC"
@@ -88,14 +106,23 @@ export default function Login() {
                   label="Password"
                   id="password"
                   name="password"
-                  type="password"
+                  type={type}
                   autoComplete="current-password"
                   required
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
-          
+          <div className="flex justify-between w-full text-black items-center">
+          <div>
+         <div className="flex" onClick={handleToggle}>
+         <Checkbox icon={<VisibilityOffOutlinedIcon />} checkedIcon={<VisibilityOutlinedIcon />} checked={type === 'text'} />
+         </div>
+          </div>
+          <a href="mailto:1032201286@tcetmumbai.in" className="text-sm font-semibold leading-6  text-indigo-600 hover:text-indigo-500 cursor-pointer">
+            Forgot Password?
+          </a>
+          </div>
            
             {/* <div className="flex items-center justify-end">
               <div className="text-sm">
@@ -122,7 +149,7 @@ export default function Login() {
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member ?{" "}
             <Link to="">
-              <a className="font-semibold leading-6  text-indigo-600 hover:text-indigo-500 cursor-pointer">
+              <a href="mailto:1032201286@tcetmumbai.in" className="font-semibold leading-6  text-indigo-600 hover:text-indigo-500 cursor-pointer">
                 Contact respective co-ordinators.
               </a>
             </Link>

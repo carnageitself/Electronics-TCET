@@ -29,7 +29,7 @@ const Profile = () => {
       <div className="top flex-6 flex mx-20 mt-10 justify-between gap-10">
         <div className="singleLeft flex flex-col justify-between items-center relative flex-1 rounded-lg border w-[100px] h-[400px] gap-2">
           {currentUser.admin && (
-            <div className="editButton absolute top-1 bg-slate-50 right-1 p-1 cursor-pointer text-gray-500 hover:border rounded-full">
+            <div className="editButton absolute top-1 bg-slate-50 right-1 p-1 cursor-pointer text-gray-500 border rounded-full">
               <Link to="/users/new">
                 <CreateIcon />
               </Link>
@@ -39,7 +39,7 @@ const Profile = () => {
             <img
               src={currentUser?.img}
               alt=""
-              className="itemImg w-20 h-20 rounded-full object-cover"
+              className="itemImg w-20 h-20 rounded-full object-cover ring-2 ring-slate-300 p-[1px]"
             />
           </div>
           <div className="detials flex flex-col w-full h-full">
@@ -103,12 +103,12 @@ const Profile = () => {
         </div>
       </div>
       <div className="bottom p-5 m-3">
-        <AcademicTable />
         <div className="title my-5 mx-12 flex justify-between items-center">
           <h1 className="border p-2 text-xl rounded">Academic Transcripts</h1>
-          {/* <a href="mailto:1032201286@tcetmumbai.in" className="p-1 px-2 text-red-500 font-semibold border rounded items-center cursor-pointer flex gap-2 redbg">Report<ErrorOutlineIcon/></a> */}
-          <DropDOwn/>
+          <a href="mailto:1032201286@tcetmumbai.in" className="p-2 px-2 text-red-500 font-semibold border rounded items-center cursor-pointer flex gap-2 redbg">Report<ErrorOutlineIcon/></a>
+          {/* <DropDOwn/> */}
         </div>
+        <AcademicTable />
         <List />
       </div>
     </div>

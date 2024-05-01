@@ -44,43 +44,43 @@ function App() {
     },
     {
       path: "/",
-      element:<Layout />,
+      element:<RequireAuth><Layout /></RequireAuth>,
       children: [
         {
           path: "/",
-          element:<RequireAuth><Home /></RequireAuth> ,
+          element:<Home /> ,
         },
         {
           path: "/users",
-          element:<RequireAuth> <Users /></RequireAuth>,
+          element: <Users />,
         },
         {
           path: "/classroom",
-          element:<RequireAuth><Classroom /></RequireAuth> ,
+          element:<Classroom /> ,
         },
         {
           path: "/events",
-          element:<RequireAuth><Events /></RequireAuth> ,
+          element:<Events /> ,
         },
         {
           path: "/kanban",
-          element: <RequireAuth><Kanban /></RequireAuth>,
+          element: <Kanban />,
         },
         {
           path: "/users/new",
-          element:<RequireAuth> <New inputs={userInputs}/></RequireAuth>,
+          element: <New inputs={userInputs}/>,
         },
         {
           path: "/profile",
-          element:<RequireAuth><Profile /></RequireAuth> ,
+          element:<Profile /> ,
         },
         {
           path: "/user/profile/:id",
-          element:<RequireAuth> <Profile /></RequireAuth>,
+          element: <Profile />,
         },
         {
           path: "/admin",
-          element:<RequireAuth> <Admin /></RequireAuth>,
+          element: <Admin />,
         },
       ],
     },

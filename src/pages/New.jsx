@@ -7,13 +7,12 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { Checkbox, Input } from "@material-tailwind/react";
+import { Input } from "@material-tailwind/react";
 
 const New = ({ inputs }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [per, setPer] = useState(null);
-  const [active, setActive] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -128,7 +127,6 @@ const New = ({ inputs }) => {
               <input
                 type="file"
                 id="file"
-                required={true}
                 onChange={(e) => setFile(e.target.files[0])}
                 style={{ display: "none" }}
               />
@@ -142,32 +140,16 @@ const New = ({ inputs }) => {
                     placeholder={input?.placeholder}
                     onChange={handleInput}
                     required
-                    className="bg-transparent placeholder:text-gray-700"
+                    className="bg-transparent placeholder:text-gray-500"
                   />
                 </div>
               ))}
             </div>
-            {/* <div className="ml-16 mt-5">
-              <Checkbox
-                label={
-                  <>
-                    Agree to our{" "}
-                    <span className="text-blue-600 cursor-pointer underline underline-offset-1">
-                      privacy policy.
-                    </span>
-                  </>
-                }
-                checked={active}
-                onChange={setActive}
-              />
-            </div> */}
             <div className="flex justify-center items-center mt-10">
               <button
                 disabled={per !== null && per < 100}
-                
                 type="submit"
                 className="bg-green-500 px-4 py-2 rounded-lg"
-                onSubmit={handleAdd}
               >
                 Submit
               </button>

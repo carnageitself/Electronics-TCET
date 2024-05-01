@@ -13,7 +13,7 @@ export const userData = [
 ];
 
 export const userColumns = [
-  { field: "testMarks", headerName: "Test Marks", width: 400 },
+  { field: "testMarks", headerName: "Test Marks", width: 460 },
   {
     field: "test1",
     headerName: "Term Test 1 Marks",

@@ -60,7 +60,6 @@ const AcademicTable = () => {
       columns={userColumns}
       pageSize={9}
       rowsPerPageOptions={[8]}
-      checkboxSelection
     />
   </div>
   )

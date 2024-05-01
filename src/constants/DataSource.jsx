@@ -40,7 +40,7 @@ export const userColumns = [
       width: 130,
       renderCell: (params) => {
         return (
-          <div className={`cellWithStatus ${params.row.status}`}>
+          <div className={`cellWithStatus lowercase ${params.row.status}`}>
             {params.row.status}
           </div>
         );
